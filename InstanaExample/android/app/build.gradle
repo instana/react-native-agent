@@ -1,6 +1,6 @@
 apply plugin: "com.android.application"
 // Apply the Instana Plugin to enable Compile Time Weaving
-apply plugin: "com.instana.android.plugin"
+apply plugin: "com.instana.android-agent-plugin"
 
 import com.android.build.OutputFile
 
@@ -13,7 +13,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath "com.instana.android:plugin:1.0.0"
+        classpath "com.instana:android-agent-plugin:1.0.0"
     }
 }
 
