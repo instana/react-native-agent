@@ -31,12 +31,27 @@ public class InstanaEumModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setUserName(String userName) {
-        Instana.INSTANCE.setUserName(userName);
+    public void setView(String viewName) {
+        Instana.setView(viewName);
     }
 
     @ReactMethod
-    public void setView(String view) {
-        Instana.INSTANCE.setView(view);
+    public void setUserID(String userID) {
+        Instana.setUserId(userID);
+    }
+
+    @ReactMethod
+    public void setUserName(String userName) {
+        Instana.setUserName(userName);
+    }
+
+    @ReactMethod
+    public void setUserEmail(String userEmail) {
+        Instana.setUserEmail(userEmail);
+    }
+
+    @ReactMethod
+    public void setMeta(String key, String value) {
+        Instana.getMeta().put(key, value);
     }
 }

@@ -17,8 +17,11 @@ console.warn(NativeModules);
 
 export default class App extends Component {
   componentDidMount() {
-    Instana.setup(YOUR_INSTANA_REPORTING_URL, YOUR_INSTANA_APP_KEY);
+    Instana.setup(YOUR_INSTANA_APP_KEY, YOUR_INSTANA_REPORTING_URL);
+    Instana.setUserID('123456');
+    Instana.setUserEmail('nils@example.com');
     Instana.setUserName('Nils Mustermann');
+    Instana.setMeta('randomKey', 'randomValue');
     Instana.setView('MainView');
   }
 
