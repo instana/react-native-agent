@@ -41,6 +41,17 @@ export default class App extends Component {
         // console.error(e);
       }
     }
+
+    getMoviesFromApiAsync();
+    async function getMoviesFromApiAsync() {
+      try {
+        let response = await fetch('https://reactnative.dev/movies.json');
+        let json = await response.json();
+        console.log(json);
+      } catch (error) {
+        console.error(error);
+      }
+    }
   }
 
   render() {

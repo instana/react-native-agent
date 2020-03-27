@@ -33,3 +33,16 @@ Every time you change the wrapper:
 2. cd $PROJECT/InstanaExample && yarn install --check-files
 3. cd $PROJECT/InstanaExample/android && android/gradlew clean --refresh-dependencies
 4. cd $PROJECT/InstanaExample && npx react-native run-android
+
+## Warnings
+
+### fetch(url)
+
+In your Android module-level gradle file (usually `app/gradle.build`):
+```groovy
+dependencies {
+    implementation "com.squareup.okhttp3:okhttp:4.3.1"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:4.3.1"
+}
+```
+It otherwise crashed. Apparently same issue as described in: https://github.com/facebook/react-native/issues/27250
