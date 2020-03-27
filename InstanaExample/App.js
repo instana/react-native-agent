@@ -23,6 +23,15 @@ export default class App extends Component {
     Instana.setUserName('Nils Mustermann');
     Instana.setMeta('randomKey', 'randomValue');
     Instana.setView('MainView');
+    
+    getSessionID();
+    async function getSessionID() {
+      try {
+        var sessionID = await Instana.getSessionID();
+      } catch (e) {
+        console.error(e);
+      }
+    }
   }
 
   render() {

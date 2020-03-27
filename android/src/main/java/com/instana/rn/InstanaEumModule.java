@@ -5,7 +5,7 @@ import android.app.Application;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 import com.instana.android.Instana;
 import com.instana.android.core.InstanaConfig;
 
@@ -33,6 +33,17 @@ public class InstanaEumModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void setView(String viewName) {
         Instana.setView(viewName);
+    }
+
+    private static final String E_SESSIONID_ERROR = "Tried to get SessionID before it being set";
+    @ReactMethod
+    public void getSessionID(Promise promise) {
+        String sessionId = Instana.getSessionId();
+        if (sessionId != null) {
+            promise.resolve(sessionId);
+        } else {
+            promise.reject(E_SESSIONID_ERROR);
+        }
     }
 
     @ReactMethod
