@@ -32,6 +32,15 @@ export default class App extends Component {
         console.error(e);
       }
     }
+
+    setIgnoreURLsByRegex();
+    async function setIgnoreURLsByRegex() {
+      try {
+        await Instana.setIgnoreURLsByRegex(["google.com", "example.com", "["]);
+      } catch (e) {
+        // console.error(e);
+      }
+    }
   }
 
   render() {
