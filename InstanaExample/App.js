@@ -9,7 +9,7 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Button } from 'react-native';
 import { NativeModules } from 'react-native';
 import Instana from 'react-native-instana-eum';
 console.warn(Instana);
@@ -38,27 +38,56 @@ export default class App extends Component {
       try {
         await Instana.setIgnoreURLsByRegex(["google.com", "example.com", "["]);
       } catch (e) {
-        // console.error(e);
-      }
-    }
-
-    getMoviesFromApiAsync();
-    async function getMoviesFromApiAsync() {
-      try {
-        let response = await fetch('https://reactnative.dev/movies.json');
-        let json = await response.json();
-        console.log(json);
-      } catch (error) {
-        console.error(error);
+        console.warn(e);
       }
     }
   }
 
+
+  async onRunFetchAsync() {
+    try {
+      let response = await fetch('https://reactnative.dev/movies.json');
+      let json = await response.json()
+      console.log('success', json);
+    } catch (error) {
+      console.warn(error);
+    }
+  }
+
+  async onRunXMLHttpRequest() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = (e) => {
+      if (request.readyState !== 4) {
+        return;
+      }
+
+      if (request.status === 200) {
+        console.log('success', request.responseText);
+      } else {
+        console.warn('error');
+      }
+    };
+
+    request.open('GET', 'https://reactnative.dev/movies.json');
+    request.send();
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Monitored by Instana.</Text>
-      </View>
+      <SafeAreaView style={styles.container}>
+        <View>
+        <Button
+          onPress={this.onRunFetchAsync}
+          title="Run `fetch`"
+        />
+        </View>
+        <View  style={{marginTop:10}}>
+        <Button
+          onPress={this.onRunXMLHttpRequest}
+          title="Run `XMLHttpRequest`"
+        />
+        </View>
+      </SafeAreaView>
     );
   }
 }
@@ -69,15 +98,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
