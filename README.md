@@ -8,13 +8,24 @@
 
 `$ react-native link react-native-instana-eum`
 
-## Usage
+## Getting started
 ```javascript
 import InstanaEum from 'react-native-instana-eum';
-
-// TODO: What to do with the module?
-InstanaEum;
 ```
+
+### Warning
+
+We recommend adding `http://localhost:8081` to the ignored URLs list to avoid the Agent from tracing communication with the Metro bundler:
+
+```javascript
+Instana.setIgnoreURLsByRegex(["http:\/\/localhost:8081.*"]);
+```
+
+### Android
+
+You will need to add these in order to support automatic tracking of network requests in Android:
+
+// TODO
 
 ## Running the example Android app
 

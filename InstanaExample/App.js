@@ -36,7 +36,7 @@ export default class App extends Component {
     setIgnoreURLsByRegex();
     async function setIgnoreURLsByRegex() {
       try {
-        await Instana.setIgnoreURLsByRegex(["google.com", "example.com", "["]);
+        await Instana.setIgnoreURLsByRegex(["http:\/\/localhost:8081.*", "example.com", "["]);
       } catch (e) {
         console.warn(e);
       }
