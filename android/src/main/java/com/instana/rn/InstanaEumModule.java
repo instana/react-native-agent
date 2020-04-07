@@ -32,9 +32,9 @@ public class InstanaEumModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setup(String reportingUrl, String key) {
+    public void setup(String key, String reportingUrl) {
         Application application = reactContext.getCurrentActivity().getApplication();
-        InstanaConfig config = new InstanaConfig(reportingUrl, key);
+        InstanaConfig config = new InstanaConfig(key, reportingUrl);
         Instana.setup(application, config);
     }
 
