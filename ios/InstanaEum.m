@@ -12,7 +12,7 @@ static NSInteger const kErrorDomainCodeWrongRegex = -1;
 
 @implementation InstanaEum
 
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE("Instana")
 
 RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *)reportingUrl)
 {
