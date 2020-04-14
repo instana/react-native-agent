@@ -1,4 +1,4 @@
-#import "InstanaEum.h"
+#import "RNInstana.h"
 @import InstanaAgent;
 
 // User
@@ -10,9 +10,9 @@ static NSString *currentUserName = @"";
 static NSString *const kErrorDomain = @"com.instana.instana-agent-react-native";
 static NSInteger const kErrorDomainCodeWrongRegex = -1;
 
-@implementation InstanaEum
+@implementation RNInstana
 
-RCT_EXPORT_MODULE("Instana")
+RCT_EXPORT_MODULE(Instana)
 
 RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *)reportingUrl)
 {
