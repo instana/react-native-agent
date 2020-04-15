@@ -45,6 +45,31 @@ Every time you change the wrapper:
 3. cd $PROJECT/InstanaExample/android && android/gradlew clean --refresh-dependencies
 4. cd $PROJECT/InstanaExample && npx react-native run-android
 
+
+## iOS
+### Integrate into your ReactNative project
+#### Things you have to do in your project 
+1. Add at least one Swift file (can be empty)
+Open the Xcode Project in <YourReactNativeProject>/ios and add an empty Swift file. Also let Xcode create the Bridging Header
+
+### Work on the wrapper
+#### Check out the wrapper project
+git clone git@github.com:instana/instana-agent-react-native.git $PROJECT
+cd $PROJECT && yarn install
+cd $PROJECT/InstanaExample && yarn install
+cd $PROJECT/InstanaExample/ios && pod install
+cd $PROJECT/InstanaExample && npx react-native run-ios 
+
+#### Everytime you change the wrapper:
+cd $PROJECT/InstanaExample && yarn install --check-files
+cd $PROJECT/InstanaExample && npx react-native run-ios
+
+#### Everytime you update the sub dependencies (CocoaPods)
+cd $PROJECT/InstanaExample && yarn install --check-files
+cd $PROJECT/InstanaExample/ios && pod install
+cd $PROJECT/InstanaExample && npx react-native run-ios
+
+
 ## Warnings
 
 ### fetch(url)
