@@ -77,7 +77,7 @@ RCT_EXPORT_METHOD(setIgnoreURLsByRegex:(nonnull NSArray <NSString*>*)regexArray 
     }
 }
 
-RCT_EXPORT_METHOD(getSessionID:(nonnull NSString *)userEmail resolve:(RCTPromiseResolveBlock)resolve)
+RCT_EXPORT_METHOD(getSessionID:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
     resolve([Instana sessionID]);
 }
