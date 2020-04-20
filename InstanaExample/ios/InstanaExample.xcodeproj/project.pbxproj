@@ -8,19 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* InstanaExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* InstanaExampleTests.m */; };
+		01237D02F85614512C86557D /* libPods-InstanaExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C5E3AD842C0BA14995A3B79 /* libPods-InstanaExampleTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1CDE0A3828D7E41FA319B29E /* libPods-InstanaExample-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE2BA1AAB83D56B0CC2F4B1 /* libPods-InstanaExample-tvOSTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* InstanaExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* InstanaExampleTests.m */; };
-		34706692315A8BF4CB2BD88B /* libPods-InstanaExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FCCA5856A40B1202550B446 /* libPods-InstanaExample.a */; };
-		68A1C14A2EA2BFE85DC3DA7C /* libPods-InstanaExample-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8CC4E51A72829F1517EAFD /* libPods-InstanaExample-tvOS.a */; };
+		31A4988EAA726FC33F643DBD /* libPods-InstanaExample-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0BF2995247D7EEBC1A2CD5 /* libPods-InstanaExample-tvOS.a */; };
+		482AE08CB5DE07E3238D149E /* libPods-InstanaExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E901F8C843402CF35CAA9181 /* libPods-InstanaExample.a */; };
 		7215B8A8243F7AA200C076CF /* EmptySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7215B8A7243F7AA200C076CF /* EmptySwift.swift */; };
-		A7C93F15F49CBEA935CD89FD /* libPods-InstanaExample-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D946216EBB082CD2EE6142 /* libPods-InstanaExample-tvOSTests.a */; };
-		A93899007E7258CBE1F8D164 /* libPods-InstanaExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0ABE573E634315EDA1E82D /* libPods-InstanaExampleTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,9 @@
 		00E356EE1AD99517003FC87E /* InstanaExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstanaExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* InstanaExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstanaExampleTests.m; sourceTree = "<group>"; };
-		0DA4FF04B33E308AB3269A0E /* Pods-InstanaExample-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-InstanaExample-tvOSTests/Pods-InstanaExample-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		05A8B7943C9BD144D930BEAA /* Pods-InstanaExample-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstanaExample-tvOS/Pods-InstanaExample-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		05B043D054D9A5AD83F9DB0A /* Pods-InstanaExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstanaExample/Pods-InstanaExample.release.xcconfig"; sourceTree = "<group>"; };
+		064AAB90F14773AB18FC39A9 /* Pods-InstanaExample-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstanaExample-tvOSTests/Pods-InstanaExample-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* InstanaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstanaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = InstanaExample/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = InstanaExample/AppDelegate.m; sourceTree = "<group>"; };
@@ -53,23 +55,21 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = InstanaExample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = InstanaExample/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = InstanaExample/main.m; sourceTree = "<group>"; };
-		1C0ABE573E634315EDA1E82D /* libPods-InstanaExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstanaExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		21E7C404589908D9A962EBBB /* Pods-InstanaExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExampleTests.release.xcconfig"; path = "Target Support Files/Pods-InstanaExampleTests/Pods-InstanaExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		1BE2BA1AAB83D56B0CC2F4B1 /* libPods-InstanaExample-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstanaExample-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* InstanaExample-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InstanaExample-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* InstanaExample-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "InstanaExample-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		623C2B704F59D871391B195D /* Pods-InstanaExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-InstanaExampleTests/Pods-InstanaExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6BFF74F59A2C4BA33591A020 /* Pods-InstanaExample-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample-tvOS.release.xcconfig"; path = "Target Support Files/Pods-InstanaExample-tvOS/Pods-InstanaExample-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		6FCCA5856A40B1202550B446 /* libPods-InstanaExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstanaExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		354AFD22A80DCEE52A1A08CA /* Pods-InstanaExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstanaExample/Pods-InstanaExample.debug.xcconfig"; sourceTree = "<group>"; };
+		56E8D918BB2B7403D8C75FDF /* Pods-InstanaExample-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstanaExample-tvOS/Pods-InstanaExample-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		5C5E3AD842C0BA14995A3B79 /* libPods-InstanaExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstanaExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7215B8A6243F7AA100C076CF /* InstanaExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InstanaExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		7215B8A7243F7AA200C076CF /* EmptySwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySwift.swift; sourceTree = "<group>"; };
-		83D946216EBB082CD2EE6142 /* libPods-InstanaExample-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstanaExample-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CA31418CB8C2F445C4614EB /* Pods-InstanaExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample.debug.xcconfig"; path = "Target Support Files/Pods-InstanaExample/Pods-InstanaExample.debug.xcconfig"; sourceTree = "<group>"; };
-		9D8CC4E51A72829F1517EAFD /* libPods-InstanaExample-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstanaExample-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC3AC0AB3D563CE358917B3A /* Pods-InstanaExample-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-InstanaExample-tvOS/Pods-InstanaExample-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		B23A98C3D3933861AA4C83E3 /* Pods-InstanaExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample.release.xcconfig"; path = "Target Support Files/Pods-InstanaExample/Pods-InstanaExample.release.xcconfig"; sourceTree = "<group>"; };
-		C3E30D61D800A077EEEDDB4A /* Pods-InstanaExample-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-InstanaExample-tvOSTests/Pods-InstanaExample-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		8E0BF2995247D7EEBC1A2CD5 /* libPods-InstanaExample-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstanaExample-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A449D63BF532F43C8A7A11EC /* Pods-InstanaExample-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExample-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstanaExample-tvOSTests/Pods-InstanaExample-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		E8BDAF1A1EA757C2F310AC93 /* Pods-InstanaExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstanaExampleTests/Pods-InstanaExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E901F8C843402CF35CAA9181 /* libPods-InstanaExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstanaExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F2B516ADE46B95FA03C8547B /* Pods-InstanaExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstanaExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstanaExampleTests/Pods-InstanaExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A93899007E7258CBE1F8D164 /* libPods-InstanaExampleTests.a in Frameworks */,
+				01237D02F85614512C86557D /* libPods-InstanaExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34706692315A8BF4CB2BD88B /* libPods-InstanaExample.a in Frameworks */,
+				482AE08CB5DE07E3238D149E /* libPods-InstanaExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68A1C14A2EA2BFE85DC3DA7C /* libPods-InstanaExample-tvOS.a in Frameworks */,
+				31A4988EAA726FC33F643DBD /* libPods-InstanaExample-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7C93F15F49CBEA935CD89FD /* libPods-InstanaExample-tvOSTests.a in Frameworks */,
+				1CDE0A3828D7E41FA319B29E /* libPods-InstanaExample-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,10 +146,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				6FCCA5856A40B1202550B446 /* libPods-InstanaExample.a */,
-				9D8CC4E51A72829F1517EAFD /* libPods-InstanaExample-tvOS.a */,
-				83D946216EBB082CD2EE6142 /* libPods-InstanaExample-tvOSTests.a */,
-				1C0ABE573E634315EDA1E82D /* libPods-InstanaExampleTests.a */,
+				E901F8C843402CF35CAA9181 /* libPods-InstanaExample.a */,
+				8E0BF2995247D7EEBC1A2CD5 /* libPods-InstanaExample-tvOS.a */,
+				1BE2BA1AAB83D56B0CC2F4B1 /* libPods-InstanaExample-tvOSTests.a */,
+				5C5E3AD842C0BA14995A3B79 /* libPods-InstanaExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 				00E356EF1AD99517003FC87E /* InstanaExampleTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				FC989580FB2BE317BA74329E /* Pods */,
+				D3BC34F81A16610768507550 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -187,20 +187,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FC989580FB2BE317BA74329E /* Pods */ = {
+		D3BC34F81A16610768507550 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8CA31418CB8C2F445C4614EB /* Pods-InstanaExample.debug.xcconfig */,
-				B23A98C3D3933861AA4C83E3 /* Pods-InstanaExample.release.xcconfig */,
-				AC3AC0AB3D563CE358917B3A /* Pods-InstanaExample-tvOS.debug.xcconfig */,
-				6BFF74F59A2C4BA33591A020 /* Pods-InstanaExample-tvOS.release.xcconfig */,
-				0DA4FF04B33E308AB3269A0E /* Pods-InstanaExample-tvOSTests.debug.xcconfig */,
-				C3E30D61D800A077EEEDDB4A /* Pods-InstanaExample-tvOSTests.release.xcconfig */,
-				623C2B704F59D871391B195D /* Pods-InstanaExampleTests.debug.xcconfig */,
-				21E7C404589908D9A962EBBB /* Pods-InstanaExampleTests.release.xcconfig */,
+				354AFD22A80DCEE52A1A08CA /* Pods-InstanaExample.debug.xcconfig */,
+				05B043D054D9A5AD83F9DB0A /* Pods-InstanaExample.release.xcconfig */,
+				05A8B7943C9BD144D930BEAA /* Pods-InstanaExample-tvOS.debug.xcconfig */,
+				56E8D918BB2B7403D8C75FDF /* Pods-InstanaExample-tvOS.release.xcconfig */,
+				064AAB90F14773AB18FC39A9 /* Pods-InstanaExample-tvOSTests.debug.xcconfig */,
+				A449D63BF532F43C8A7A11EC /* Pods-InstanaExample-tvOSTests.release.xcconfig */,
+				E8BDAF1A1EA757C2F310AC93 /* Pods-InstanaExampleTests.debug.xcconfig */,
+				F2B516ADE46B95FA03C8547B /* Pods-InstanaExampleTests.release.xcconfig */,
 			);
 			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +209,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "InstanaExampleTests" */;
 			buildPhases = (
-				ECCFFCFA1988D0A05976C53B /* [CP] Check Pods Manifest.lock */,
+				258313D4E46E4E8E60E925C9 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -229,7 +228,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "InstanaExample" */;
 			buildPhases = (
-				22C0344550F2678FF4399B5B /* [CP] Check Pods Manifest.lock */,
+				0A7D874562A1AAE507D72066 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -249,7 +248,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "InstanaExample-tvOS" */;
 			buildPhases = (
-				D95AD267F1159E4FCE9EB18E /* [CP] Check Pods Manifest.lock */,
+				D88106A5BCDF63D8AE20200D /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -269,7 +268,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "InstanaExample-tvOSTests" */;
 			buildPhases = (
-				013015D5816357310E87986D /* [CP] Check Pods Manifest.lock */,
+				BDD7B517D736248C769EEE4E /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -382,29 +381,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		013015D5816357310E87986D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-InstanaExample-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		22C0344550F2678FF4399B5B /* [CP] Check Pods Manifest.lock */ = {
+		0A7D874562A1AAE507D72066 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -426,43 +403,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		D95AD267F1159E4FCE9EB18E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-InstanaExample-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ECCFFCFA1988D0A05976C53B /* [CP] Check Pods Manifest.lock */ = {
+		258313D4E46E4E8E60E925C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -478,6 +419,64 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-InstanaExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native Code And Images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		BDD7B517D736248C769EEE4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InstanaExample-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D88106A5BCDF63D8AE20200D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InstanaExample-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -590,7 +589,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 623C2B704F59D871391B195D /* Pods-InstanaExampleTests.debug.xcconfig */;
+			baseConfigurationReference = E8BDAF1A1EA757C2F310AC93 /* Pods-InstanaExampleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -614,7 +613,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21E7C404589908D9A962EBBB /* Pods-InstanaExampleTests.release.xcconfig */;
+			baseConfigurationReference = F2B516ADE46B95FA03C8547B /* Pods-InstanaExampleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -635,7 +634,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CA31418CB8C2F445C4614EB /* Pods-InstanaExample.debug.xcconfig */;
+			baseConfigurationReference = 354AFD22A80DCEE52A1A08CA /* Pods-InstanaExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -659,7 +658,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B23A98C3D3933861AA4C83E3 /* Pods-InstanaExample.release.xcconfig */;
+			baseConfigurationReference = 05B043D054D9A5AD83F9DB0A /* Pods-InstanaExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -681,7 +680,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC3AC0AB3D563CE358917B3A /* Pods-InstanaExample-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 05A8B7943C9BD144D930BEAA /* Pods-InstanaExample-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -709,7 +708,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BFF74F59A2C4BA33591A020 /* Pods-InstanaExample-tvOS.release.xcconfig */;
+			baseConfigurationReference = 56E8D918BB2B7403D8C75FDF /* Pods-InstanaExample-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -737,7 +736,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DA4FF04B33E308AB3269A0E /* Pods-InstanaExample-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 064AAB90F14773AB18FC39A9 /* Pods-InstanaExample-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -764,7 +763,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3E30D61D800A077EEEDDB4A /* Pods-InstanaExample-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = A449D63BF532F43C8A7A11EC /* Pods-InstanaExample-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

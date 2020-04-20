@@ -35,7 +35,7 @@ target 'InstanaExample' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   # Add new pods below this line
-  pod 'react-native-instana-eum', :path => '../node_modules/react-native-instana-eum'
+  pod 'instana_react-native-agent', :path => '../node_modules/@instana/react-native-agent'
 
   
 
