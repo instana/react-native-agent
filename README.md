@@ -54,8 +54,8 @@ Every time you change the wrapper:
 ### Integrate into your ReactNative project
 #### Things you have to do in your project 
 
-1. Add at least one Swift file (can be empty)
-Open the Xcode Project in <YourReactNativeProject>/ios and add an empty Swift file. Also let Xcode create the Bridging Header
+1. Add at least one Swift file (can be empty): 
+Open the Xcode Project in `<YourReactNativeProject>/ios` and add an empty Swift file. Also let Xcode create the Bridging Header
 
 ### Work on the wrapper
 #### Check out the wrapper project
