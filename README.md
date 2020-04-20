@@ -1,4 +1,4 @@
-# react-native-instana-eum
+# @instana/react-native-agent
 
 ## Getting started
 
