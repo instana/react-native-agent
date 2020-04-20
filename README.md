@@ -2,15 +2,19 @@
 
 ## Getting started
 
-`$ npm install react-native-instana-eum --save`
+```
+$ npm install --save @instana/react-native-agent
+```
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-instana-eum`
+```
+react-native link @instana/react-native-agent
+```
 
 ## Getting started
 ```javascript
-import InstanaEum from 'react-native-instana-eum';
+import Instana from '@instana/react-native-agent';
 ```
 
 ### Warning
