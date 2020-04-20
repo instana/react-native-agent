@@ -1,4 +1,4 @@
-# Android Instana Agent <img src="https://img.shields.io/badge/v-1.0.0-brightgreen?color=0db4b3">
+# Instana React Native Agent <a href="https://www.npmjs.com/package/@instana/react-native-agent"><img alt="npm (scoped)" src="https://img.shields.io/npm/v/instana/react-native-agent?color=0db4b33"></a>
 
 ## Getting started
 
@@ -17,7 +17,7 @@ Android will require you to take 2 extra steps in order to support automatic tra
 ```groovy
 buildscript {
     dependencies {
-        classpath 'com.instana:android-agent-plugin:1.1.1'
+        classpath 'com.instana:android-agent-plugin:1.1.2'
     }
 }
 ```
@@ -31,7 +31,7 @@ apply plugin: 'com.instana.android-agent-plugin'
 
 ### Knows issues
 
-### fetch(url)
+#### fetch(url)
 
 If your app uses `fetch` to complete network requests, you might find your app crashing on runtime whenever `fetch` is used after linking Instana React Native Agent. 
 
@@ -65,7 +65,7 @@ Instana.setIgnoreURLsByRegex(["http:\/\/localhost:8081.*"]);
 
 ## Contributing
 
-## Working on the RN wrapper for Android
+### Working on the RN wrapper for Android
 
 The first time:
 1. set up your RN environment: https://reactnative.dev/docs/getting-started
@@ -81,8 +81,8 @@ Every time you make change to the RN wrapper:
 3. `cd $PROJECT/InstanaExample/android && android/gradlew clean --refresh-dependencies`
 4. `cd $PROJECT/InstanaExample && npx react-native run-android`
 
-## Working on the RN wrapper for iOS
-#### Check out the wrapper project
+### Working on the RN wrapper for iOS
+##### Check out the wrapper project
 
 1. `git clone git@github.com:instana/instana-agent-react-native.git $PROJECT`
 2. `cd $PROJECT && yarn install`
@@ -90,12 +90,12 @@ Every time you make change to the RN wrapper:
 4. `cd $PROJECT/InstanaExample/ios && pod install`
 5. `cd $PROJECT/InstanaExample && npx react-native run-ios`
 
-#### Everytime you change the wrapper:
+##### Everytime you change the wrapper:
 
 1. `cd $PROJECT/InstanaExample && yarn install --check-files`
 2. `cd $PROJECT/InstanaExample && npx react-native run-ios`
 
-#### Everytime you update the sub dependencies (CocoaPods)
+##### Everytime you update the sub dependencies (CocoaPods)
 
 1. `cd $PROJECT/InstanaExample && yarn install --check-files`
 2. `cd $PROJECT/InstanaExample/ios && pod install`
