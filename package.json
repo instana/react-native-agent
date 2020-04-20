@@ -1,8 +1,8 @@
 {
-  "name": "react-native-instana-eum",
+  "name": "@instana/react-native-agent",
   "title": "React Native Instana Eum",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "Monitor React Native app end-user interactions with Instana",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
