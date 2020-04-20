@@ -9,8 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/instana/react-native-instana-eum.git",
-    "baseUrl": "https://github.com/instana/react-native-instana-eum"
+    "url": "git+https://github.com:instana/react-native-agent.git",
+    "baseUrl": "https://github.com/instana/react-native-agent"
   },
   "keywords": [
     "react-native"
