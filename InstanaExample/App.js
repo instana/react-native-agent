@@ -11,7 +11,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Button } from 'react-native';
 import { NativeModules } from 'react-native';
-import Instana from 'react-native-instana-eum';
+import Instana from '@instana/react-native-agent';
 console.warn(Instana);
 console.warn(NativeModules);
 
