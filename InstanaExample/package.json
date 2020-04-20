@@ -13,7 +13,7 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.5",
-    "react-native-instana-eum": "file:../"
+    "@instana/react-native-agent": "file:../"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
