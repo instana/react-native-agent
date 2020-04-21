@@ -29,13 +29,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.instana.android-agent-plugin'
 ```
 
-### Knows issues
+### Known issues
 
 #### fetch(url)
 
-If your app uses `fetch` to complete network requests, you might find your app crashing on runtime whenever `fetch` is used after linking Instana React Native Agent. 
+If your app uses `fetch` to complete network requests, you might find your app crashing on runtime whenever `fetch` is used. 
 
-If you encounter this issue and until the upstream issue is solved (https://github.com/facebook/react-native/issues/27250), please apply the following workaround.
+If you encounter this issue and until the upstream issue is solved ([here](https://github.com/facebook/react-native/issues/27250) and [here](https://github.com/facebook/react-native/issues/28425)), please apply the following workaround.
 
 In your Android module-level gradle file (usually `app/gradle.build`):
 ```groovy
