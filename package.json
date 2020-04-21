@@ -4,20 +4,33 @@
   "version": "1.0.0",
   "description": "Monitor React Native app end-user interactions with Instana",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "files": [
+    "index.js",
+    "yarn.lock",
+    "package-lock.json",
+    "ios",
+    "instana_react-native-agent.podspec",
+    "android",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com:instana/react-native-agent.git",
     "baseUrl": "https://github.com/instana/react-native-agent"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "instana",
+    "app",
+    "monitoring",
+    "eum",
+    "rum"
   ],
   "author": {
     "name": "Instana Inc",
-    "email": "info@instana.com"
+    "email": "support@instana.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",

@@ -11,8 +11,7 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "https://github.com/instana/react-native-agent"
   s.license      = "MIT"
-  # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.authors      = { "Instana Inc." => "info@instana.com" }
+  s.authors      = { "Instana Inc." => "support@instana.com" }
   s.platforms    = { :ios => "11.0" }
   s.source       = { :git => "https://github.com/instana/react-native-agent.git", :tag => "#{s.version}" }
 
