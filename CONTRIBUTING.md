@@ -35,3 +35,12 @@ Every time you make change to the RN wrapper:
 1. `cd $PROJECT/InstanaExample && yarn install --check-files`
 2. `cd $PROJECT/InstanaExample/ios && pod install`
 3. `cd $PROJECT/InstanaExample && npx react-native run-ios`
+
+## Release Process
+
+To make a release, you first need to ensure that the released version will either be a semver minor or patch release so that automatic updates are working for our users. Following that, the process is simple:
+
+- Update `CHANGELOG.md` so that the unreleased section gets its version number. Commit and push this change.
+- Run either `npm version minor` or `npm version patch`.
+- Acquire an OTP token for 2fa of npmjs.com
+- run `npm publish`
