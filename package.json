@@ -11,6 +11,7 @@
     "ios",
     "instana_react-native-agent.podspec",
     "android",
+    "scripts",
     "README.md",
     "CHANGELOG.md",
     "LICENSE"
