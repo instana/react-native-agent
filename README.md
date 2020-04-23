@@ -1,4 +1,4 @@
-# Instana React Native Agent <a href="https://www.npmjs.com/package/@instana/react-native-agent"><img alt="npm (scoped)" src="https://img.shields.io/npm/v/instana/react-native-agent?color=0db4b33"></a>
+# Instana React Native Agent <a href="https://www.npmjs.com/package/@instana/react-native-agent"><img alt="npm (scoped)" src="https://img.shields.io/npm/v/@instana/react-native-agent?color=0db4b33"></a>
 
 **[Changelog](CHANGELOG.md)** |
 **[Contributing](CONTRIBUTING.md)**
