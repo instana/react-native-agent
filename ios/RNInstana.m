@@ -19,11 +19,6 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
     [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl]];
 }
 
-//RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *)reportingUrl httpCaptureConfig:(nonnull Int)httpCaptureConfig)
-//{
-//    [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl] httpCaptureConfig:httpCaptureConfig];
-//}
-
 RCT_EXPORT_METHOD(setView:(nonnull NSString *)viewName)
 {
     [Instana setViewWithName: viewName];
