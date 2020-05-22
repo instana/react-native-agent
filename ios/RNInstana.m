@@ -77,6 +77,11 @@ RCT_EXPORT_METHOD(getSessionID:(RCTPromiseResolveBlock)resolve rejecter:(RCTProm
     resolve([Instana sessionID]);
 }
 
+RCT_EXPORT_METHOD(getViewName:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+{
+    resolve([Instana viewName]);
+}
+
 - (void)updateUser {
      [Instana setUserWithId:currentUserId email:currentUserEmail name:currentUserName];
 }
