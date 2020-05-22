@@ -47,6 +47,17 @@ RCT_EXPORT_METHOD(setMeta:(nonnull NSString *)key value:(nonnull NSString*)value
     [Instana setMetaWithValue:value key:key];
 }
 
+RCT_EXPORT_METHOD(reportEvent:(nonnull NSString *)name timestamp:(nullable int64_t)timestamp, duration:(nullable int64_t)duration) backendTracingID:(nullable NSString *)backendTracingID error:(nullable NSError *)error meta:(nullable <NSString *, NSString *> *)meta viewName:(nullable NSString *)viewName
+{
+    [Instana reportEvent: name timestamp: timestamp duration: duration backendTracingID: backendTracingID error: error meta: meta viewName: viewName];
+}
+
+// 2nd To ignore the viewName and use the current set name
+RCT_EXPORT_METHOD(reportEvent:(nonnull NSString *)name timestamp:(nullable int64_t)timestamp, duration:(nullable int64_t)duration) backendTracingID:(nullable NSString *)backendTracingID error:(nullable NSError *)error meta:(nullable <NSString *, NSString *> *)meta
+{
+    [Instana reportEvent: name timestamp: timestamp duration: duration backendTracingID: backendTracingID error: error meta: meta];
+}
+
 RCT_EXPORT_METHOD(setIgnoreURLsByRegex:(nonnull NSArray <NSString*>*)regexArray resolve:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
     NSMutableArray <NSRegularExpression*> *regexItems = [@[] mutableCopy];
