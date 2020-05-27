@@ -128,7 +128,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule {
                 event.setStartTime((long) options.getDouble(CUSTOMEVENT_START_TIME));
             }
             if (options.hasKey(CUSTOMEVENT_DURATION)) {
-                event.setDuration((long)options.getDouble(CUSTOMEVENT_DURATION));
+                event.setDuration((long) options.getDouble(CUSTOMEVENT_DURATION));
             }
             if (options.hasKey(CUSTOMEVENT_VIEW_NAME)) {
                 event.setViewName(options.getString(CUSTOMEVENT_VIEW_NAME));
