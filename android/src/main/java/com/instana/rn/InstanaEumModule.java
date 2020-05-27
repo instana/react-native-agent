@@ -12,15 +12,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
-import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.Promise;
 import com.instana.android.Instana;
 import com.instana.android.CustomEvent;
 import com.instana.android.core.InstanaConfig;
+
+import javax.annotation.Nullable;
 
 public class InstanaEumModule extends ReactContextBaseJavaModule {
 
@@ -44,13 +44,13 @@ public class InstanaEumModule extends ReactContextBaseJavaModule {
 
     @Override
     public Map<String, Object> getConstants() {
-      final Map<String, Object> constants = new HashMap<>();
-      constants.put(CUSTOMEVENT_START_TIME, CUSTOMEVENT_START_TIME);
-      constants.put(CUSTOMEVENT_DURATION, CUSTOMEVENT_DURATION);
-      constants.put(CUSTOMEVENT_VIEW_NAME, CUSTOMEVENT_VIEW_NAME);
-      constants.put(CUSTOMEVENT_META, CUSTOMEVENT_META);
-      constants.put(CUSTOMEVENT_BACKEND_TRACING_ID, CUSTOMEVENT_BACKEND_TRACING_ID);
-      return constants;
+        final Map<String, Object> constants = new HashMap<>();
+        constants.put(CUSTOMEVENT_START_TIME, CUSTOMEVENT_START_TIME);
+        constants.put(CUSTOMEVENT_DURATION, CUSTOMEVENT_DURATION);
+        constants.put(CUSTOMEVENT_VIEW_NAME, CUSTOMEVENT_VIEW_NAME);
+        constants.put(CUSTOMEVENT_META, CUSTOMEVENT_META);
+        constants.put(CUSTOMEVENT_BACKEND_TRACING_ID, CUSTOMEVENT_BACKEND_TRACING_ID);
+        return constants;
     }
 
     @ReactMethod
@@ -121,7 +121,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void reportEvent(String eventName, ReadableMap options) {
+    public void reportEvent(String eventName, @Nullable ReadableMap options) {
         CustomEvent event = new CustomEvent(eventName);
         if (options != null) {
             if (options.hasKey(CUSTOMEVENT_START_TIME)) {
@@ -137,7 +137,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule {
                 event.setBackendTracingID(options.getString(CUSTOMEVENT_BACKEND_TRACING_ID));
             }
             if (options.hasKey(CUSTOMEVENT_META)) {
-                HashMap metaMap = new HashMap<String,String>();
+                HashMap metaMap = new HashMap<String, String>();
                 ReadableMap readableMap = options.getMap(CUSTOMEVENT_META);
                 ReadableMapKeySetIterator keySetIterator = readableMap.keySetIterator();
                 while (keySetIterator.hasNextKey()) {
