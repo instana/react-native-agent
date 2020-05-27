@@ -72,6 +72,21 @@ export default class App extends Component {
     request.send();
   }
 
+  async onSendCustomEvent() {
+    var date = new Date();
+    var epochMs = date.getTime();
+    Instana.reportEvent("myCustomEvent", {
+      start_time: epochMs-500,
+      duration: 300,
+      view_name: "overridenViewName",
+      backend_tracing_id: "1234567890",
+      meta: {
+        key_one: "value_one",
+        key_two: "value_two",
+      },
+    });
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -85,6 +100,12 @@ export default class App extends Component {
         <Button
           onPress={this.onRunXMLHttpRequest}
           title="Run `XMLHttpRequest`"
+        />
+        </View>
+        <View  style={{marginTop:10}}>
+        <Button
+          onPress={this.onSendCustomEvent}
+          title="Send `CustomEvent`"
         />
         </View>
       </SafeAreaView>
