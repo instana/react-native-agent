@@ -13,7 +13,7 @@ The first time:
 Every time you make change to the RN wrapper:
 1. `cd $PROJECT/android && ./gradlew build`
 2. `cd $PROJECT/InstanaExample && yarn install --check-files`
-3. `cd $PROJECT/InstanaExample/android && android/gradlew clean --refresh-dependencies`
+3. `cd $PROJECT/InstanaExample/android && ./gradlew clean --refresh-dependencies`
 4. `cd $PROJECT/InstanaExample && npx react-native run-android`
 
 ## Working on the RN wrapper for iOS
