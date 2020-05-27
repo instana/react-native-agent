@@ -26,11 +26,11 @@ public class InstanaEumModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
 
-    private static final String CUSTOMEVENT_START_TIME = "start_time";
+    private static final String CUSTOMEVENT_START_TIME = "startTime";
     private static final String CUSTOMEVENT_DURATION = "duration";
-    private static final String CUSTOMEVENT_VIEW_NAME = "view_name";
+    private static final String CUSTOMEVENT_VIEW_NAME = "viewName";
     private static final String CUSTOMEVENT_META = "meta";
-    private static final String CUSTOMEVENT_BACKEND_TRACING_ID = "backend_tracing_id";
+    private static final String CUSTOMEVENT_BACKEND_TRACING_ID = "backendTracingId";
 
     public InstanaEumModule(ReactApplicationContext reactContext) {
         super(reactContext);

@@ -76,13 +76,13 @@ export default class App extends Component {
     var date = new Date();
     var epochMs = date.getTime();
     Instana.reportEvent("myCustomEvent", {
-      start_time: epochMs-500,
+      startTime: epochMs-500,
       duration: 300,
-      view_name: "overridenViewName",
-      backend_tracing_id: "1234567890",
+      viewName: "overridenViewName",
+      backendTracingId: "1234567890",
       meta: {
-        key_one: "value_one",
-        key_two: "value_two",
+        keyOne: "value_one",
+        keyTwo: "value_two",
       },
     });
   }
