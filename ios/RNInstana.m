@@ -10,6 +10,13 @@ static NSString *currentUserName = @"";
 static NSString *const kErrorDomain = @"com.instana.instana-agent-react-native";
 static NSInteger const kErrorDomainCodeWrongRegex = -1;
 
+// Custom Event OptionKeys
+static NSString *const kCustomEventStartTimeKey = "startTime";
+static NSString *const kCustomEventDurationKey = "duration";
+static NSString *const kCustomEventViewNameKey = "viewName";
+static NSString *const kCustomEventMetaNameKey = "meta";
+static NSString *const kCustomEventBackendTracingIDNameKey = "backendTracingId";
+
 @implementation RNInstana
 
 RCT_EXPORT_MODULE(Instana)
@@ -47,15 +54,14 @@ RCT_EXPORT_METHOD(setMeta:(nonnull NSString *)key value:(nonnull NSString*)value
     [Instana setMetaWithValue:value key:key];
 }
 
-RCT_EXPORT_METHOD(reportEvent:(nonnull NSString *)name timestamp:(nullable int64_t)timestamp, duration:(nullable int64_t)duration) backendTracingID:(nullable NSString *)backendTracingID meta:(nullable <NSString *, NSString *> *)meta viewName:(nullable NSString *)viewName
+RCT_EXPORT_METHOD(reportEvent:(nonnull NSString *)name options:(NSDictionary *)options
 {
-    [Instana reportEvent: name timestamp: timestamp duration: duration backendTracingID: backendTracingID error: nil meta: meta viewName: viewName];
-}
-
-// 2nd method to ignore the viewName and use the current set name
-RCT_EXPORT_METHOD(reportEvent:(nonnull NSString *)name timestamp:(nullable int64_t)timestamp, duration:(nullable int64_t)duration) backendTracingID:(nullable NSString *)backendTracingID meta:(nullable <NSString *, NSString *> *)meta
-{
-    [Instana reportEvent: name timestamp: timestamp duration: duration backendTracingID: backendTracingID error: nil meta: meta];
+    NSInteger startTime = [[options objectForKey: kCustomEventStartTimeKey] integerValue];
+    NSInteger duration = [[options objectForKey: kCustomEventDurationKey] integerValue];
+    NSString *viewName = [options objectForKey: kCustomEventViewNameKey];
+    NSDictionary *meta = [options objectForKey: kCustomEventMetaNameKey];
+    NSString *backendTracingID = [options objectForKey: kCustomEventBackendTracingIDNameKey];
+    [Instana reportEvent: name timestamp: startTime duration: duration backendTracingID: backendTracingID error: nil meta: meta viewName: viewName];
 }
 
 RCT_EXPORT_METHOD(setIgnoreURLsByRegex:(nonnull NSArray <NSString*>*)regexArray resolve:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
