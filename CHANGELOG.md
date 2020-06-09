@@ -6,7 +6,7 @@
 - Add the ability to report custom events
 
 ## 1.0.1
-- Set iOSAgent to version 1.0.6
+- Update native iOS Instana agent version to 1.0.6
 
 ## 1.0.0
 
