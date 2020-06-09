@@ -20,7 +20,7 @@ PODS:
     - glog
   - glog (0.3.5)
   - GzipSwift (5.1.1)
-  - instana_react-native-agent (1.0.0):
+  - instana_react-native-agent (1.0.1):
     - InstanaAgent (= 1.0.6)
     - React
   - InstanaAgent (1.0.6):
@@ -324,7 +324,7 @@ SPEC CHECKSUMS:
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
-  instana_react-native-agent: 5e6d0cf1bd402eddde85f76723dcbc692445d5e4
+  instana_react-native-agent: 86c40836c7be6498b5a47d2b9570fd2fac236b19
   InstanaAgent: 7e5cc40eabe9515b42af113bad6d434e6baaccc2
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
   RCTTypeSafety: 9aa1b91d7f9310fc6eadc3cf95126ffe818af320
@@ -349,4 +349,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 53b3e9bd4539c0c9d9ab1598ac8631d309fbb458
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.2
