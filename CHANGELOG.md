@@ -1,8 +1,9 @@
 # Changelog
 
 ## 1.1.0
-- Update native Instana agents (iOS => 1.0.7)
-- Adds the ability to report custom events
+- Update native iOS Instana agent to 1.0.7
+- Update native Android Instana agent to 1.2.0
+- Add the ability to report custom events
 
 ## 1.0.1
 - Set iOSAgent to version 1.0.6
