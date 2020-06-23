@@ -54,7 +54,9 @@ Instana.setIgnoreURLsByRegex(["http:\/\/localhost:8081.*"]);
 
 ### Android: fetch(url)
 
-If your app uses `fetch` to complete network requests, you might find your app crashing on runtime whenever `fetch` is used after linking Instana React Native Agent.  If you encounter this issue before [the upstream issue is solved](https://github.com/facebook/react-native/issues/28425), please apply the following [workaround](https://github.com/facebook/react-native/issues/27250#issuecomment-573111088). Add the following to your Android module-level gradle file (usually `app/gradle.build`):
+If your app uses `fetch` to complete network requests, you might find your app crashing on runtime whenever `fetch` is used after linking Instana React Native Agent : `No virtual method toString(Z)Ljava/lang/String;`  
+
+If you encounter this issue before [the upstream issue is solved](https://github.com/facebook/react-native/issues/28425), please apply the following [workaround](https://github.com/facebook/react-native/issues/27250#issuecomment-573111088). Add the following to your Android module-level gradle file (usually `app/gradle.build`):
 
 ```groovy
 dependencies {
