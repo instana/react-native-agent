@@ -19,6 +19,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.swift_version = "5.1"
   s.dependency "React"
-  s.dependency "InstanaAgent", "1.0.7"
+  s.dependency "InstanaAgent", "1.1.0"
 end
-
