@@ -22,7 +22,7 @@ Add the Instana Android agent plugin to your dependencies via `android/build.gra
 ```groovy
 buildscript {
     dependencies {
-        classpath 'com.instana:android-agent-plugin:1.2.0'
+        classpath 'com.instana:android-agent-plugin:1.3.0'
     }
 }
 ```
