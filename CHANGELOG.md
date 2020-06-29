@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.0
+- Update native Android Instana agent version to 1.3.0
+
 ## 1.2.0
 - Update native iOS Instana agent version to 1.1.0
 
