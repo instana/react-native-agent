@@ -11,9 +11,9 @@
     "postinstall": "node ../scripts/examples_postinstall.js"
   },
   "dependencies": {
+    "@instana/react-native-agent": "file:../",
     "react": "16.9.0",
-    "react-native": "0.61.5",
-    "@instana/react-native-agent": "file:../"
+    "react-native": "^0.63.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
