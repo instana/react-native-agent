@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.1
+- Fix bug which could prevent crash on Android when app was started while the device screen is off
+
 ## 1.4.0
 - Update native iOS Instana agent version to 1.1.1
 
