@@ -46,3 +46,7 @@ buck-out/
 .classpath
 .project
 org.eclipse.buildship.core.prefs
+
+# Visual Studio Code
+# 
+.vscode
