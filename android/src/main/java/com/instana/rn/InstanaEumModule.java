@@ -1,7 +1,10 @@
 package com.instana.rn;
 
+import android.app.Activity;
 import android.app.Application;
+import android.util.Log;
 
+import com.facebook.react.bridge.LifecycleEventListener;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -22,9 +25,11 @@ import com.instana.android.core.InstanaConfig;
 
 import javax.annotation.Nullable;
 
-public class InstanaEumModule extends ReactContextBaseJavaModule {
+public class InstanaEumModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
 
     private final ReactApplicationContext reactContext;
+    private String key;
+    private String reportingUrl;
 
     private static final String CUSTOMEVENT_START_TIME = "startTime";
     private static final String CUSTOMEVENT_DURATION = "duration";
@@ -53,9 +58,40 @@ public class InstanaEumModule extends ReactContextBaseJavaModule {
         return constants;
     }
 
+    @Override
+    public void onHostResume() {
+        if (Instana.getSessionId() == null && this.key != null && this.reportingUrl != null) {
+            Activity activity = getCurrentActivity();
+            if (activity != null) {
+                Log.i("Instana", "Instana Android Agent successfully retried to set up");
+                doSetup(activity.getApplication(), key, reportingUrl);
+            } else {
+                Log.e("Instana", "Instana Android Agent failed again trying to obtain an Activity. Instana Android Agent won't be set up");
+            }
+        }
+        getReactApplicationContext().removeLifecycleEventListener(this);
+    }
+
+    @Override
+    public void onHostPause() {}
+  
+    @Override
+    public void onHostDestroy() {}
+
     @ReactMethod
     public void setup(String key, String reportingUrl) {
-        Application application = reactContext.getCurrentActivity().getApplication();
+        Activity activity = getCurrentActivity();
+        if (activity != null) {
+            doSetup(activity.getApplication(), key, reportingUrl);
+        } else {
+            Log.w("Instana", "No Activity available on setup() call. Instana Android Agent won't be set up now; will retry when an Activity becomes available");
+            this.key = key;
+            this.reportingUrl = reportingUrl;
+            getReactApplicationContext().addLifecycleEventListener(this);
+        }
+    }
+
+    private void doSetup(Application application, String key, String reportingUrl) {
         InstanaConfig config = new InstanaConfig(key, reportingUrl);
         Instana.setup(application, config);
     }
