@@ -40,3 +40,9 @@ local.properties
 buck-out/
 \.buckd/
 *.keystore
+
+# Eclipse
+#
+.classpath
+.project
+org.eclipse.buildship.core.prefs
