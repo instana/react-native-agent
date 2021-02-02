@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.3
+- Update native iOS Instana agent version to 1.1.10
+
 ## 1.4.2
 - Update native iOS Instana agent version to 1.1.8
 
