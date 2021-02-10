@@ -1,9 +1,6 @@
-//
-//  EmptySwift.swift
-//  InstanaExample
-//
-//  Created by Christian Menschel on 09.04.20.
-//  Copyright © 2020 Facebook. All rights reserved.
-//
+/*
+ * (c) Copyright IBM Corp. 2021
+ * (c) Copyright Instana Inc. and contributors 2021
+ */
 
 import Foundation

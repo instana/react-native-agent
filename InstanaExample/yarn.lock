@@ -725,8 +725,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@instana/react-native-agent@file:..":
+"@instana/react-native-agent@1.4.3":
   version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@instana/react-native-agent/-/react-native-agent-1.4.3.tgz#103ec22101837aac35692191d7570bdc9f17217e"
+  integrity sha512-J5wu86dAA4FRWQqd/uUGiAOZZEE3bL6gW4Lym+yjujR7tH9txYizWP4TBtzhjHbLugcfcUxETGYPiWmjy0GsTg==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
