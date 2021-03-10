@@ -15,14 +15,28 @@ npm install --save @instana/react-native-agent
 
 ### Android
 
-Android will require you to take 2 extra steps in order to support automatic tracking of network requests:
+Android will require you to take 2 extra steps in order to support automatic tracking of network requests.
+
+#### Supported React Native versions:
+
+For React Native 0.63.3 or earlier, please use:
+- Instana Android Plugin 1.5.3
+- Android Gradle Plugin 3.4.2
+- Gradle 5.5
+
+For React Native 0.63.4 or later, please use: 
+- Instana Android Plugin 4.5.3
+- Android Gradle Plugin 4.1.0
+- Gradle 6.5
+
+#### Steps
 
 Add the Instana Android agent plugin to your dependencies via `android/build.gradle`:
 
 ```groovy
 buildscript {
     dependencies {
-        classpath 'com.instana:android-agent-plugin:1.4.0'
+        classpath "com.instana:android-agent-plugin:$INSTANA_ANDROID_PLUGIN_VERSION"
     }
 }
 ```
