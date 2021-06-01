@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.0
+- Add suport for React Native 0.64.1
+
 ## 1.4.5
 - Update native iOS Instana agent version to 1.1.13
 
