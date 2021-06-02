@@ -1,7 +1,7 @@
 {
   "name": "@instana/react-native-agent",
   "title": "React Native Instana Eum",
-  "version": "1.4.5",
+  "version": "1.4.4",
   "description": "Monitor React Native app end-user interactions with Instana",
   "main": "index.js",
   "files": [
