@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.1
+- Update native Android Instana agent version to 1.5.6
+
 ## 1.5.0
 - Add suport for React Native 0.64.1
 
