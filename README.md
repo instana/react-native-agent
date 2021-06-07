@@ -20,12 +20,12 @@ Android will require you to take 2 extra steps in order to support automatic tra
 #### Supported React Native versions:
 
 For React Native 0.63.3 or earlier, please use:
-- Instana Android Plugin 1.5.3
+- Instana Android Plugin 1.5.6
 - Android Gradle Plugin 3.4.2
 - Gradle 5.5
 
 For React Native 0.63.4 or later, please use: 
-- Instana Android Plugin 4.5.3
+- Instana Android Plugin 4.5.6
 - Android Gradle Plugin 4.1.0
 - Gradle 6.5
 
