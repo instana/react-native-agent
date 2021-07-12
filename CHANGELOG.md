@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.4
+- Update native Android Instana agent version to 1.6.1
+
 ## 1.5.3
 - Update native Android Instana agent version to 1.6.0
 
