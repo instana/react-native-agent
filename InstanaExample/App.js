@@ -19,6 +19,7 @@ export default class App extends Component {
     Instana.setMeta('randomKey', 'randomValue');
     Instana.setView('MainView');
     
+    Instana.setCollectionEnabled(true);
     getSessionID();
     async function getSessionID() {
       try {

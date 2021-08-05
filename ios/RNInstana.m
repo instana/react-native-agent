@@ -28,6 +28,13 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
     });
 }
 
+RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *)reportingUrl collectionEnabled:(BOOL)enabled)
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl] httpCaptureConfig: HTTPCaptureConfigAutomatic collectionEnabled: enabled];
+    });
+}
+
 RCT_EXPORT_METHOD(setView:(nonnull NSString *)viewName)
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -127,6 +134,20 @@ RCT_EXPORT_METHOD(getViewName:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromi
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         resolve([Instana viewName]);
+    });
+}
+
+RCT_EXPORT_METHOD(setCollectionEnabled:(BOOL)enabled)
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [Instana setCollectionEnabled: enabled];
+    });
+}
+
+RCT_EXPORT_METHOD(getCollectionEnabled:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        resolve(@([Instana collectionEnabled]));
     });
 }
 
