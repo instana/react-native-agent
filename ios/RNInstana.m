@@ -28,9 +28,10 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
     });
 }
 
-RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *)reportingUrl collectionEnabled:(BOOL)enabled)
+RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *)reportingUrl options:(NSDictionary *)options)
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+        BOOL enabled = [options[@"collectionEnabled"] boolValue];
         [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl] httpCaptureConfig: HTTPCaptureConfigAutomatic collectionEnabled: enabled];
     });
 }

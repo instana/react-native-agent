@@ -12,14 +12,14 @@ console.warn(NativeModules);
 
 export default class App extends Component {
   componentDidMount() {
-    Instana.setup('Prmco-4ZRq66pMIt2HPB5Q', 'https://eum-red-saas.instana.io/mobile');
+    var options = {'collectionEnabled': false};
+    Instana.setup('bXor6AsOTXGqrJn4Ymi6gQ', 'https://eum-red-saas.instana.io/mobile', options);
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');
     Instana.setUserName('Nils Mustermann');
     Instana.setMeta('randomKey', 'randomValue');
     Instana.setView('MainView');
-    
-    Instana.setCollectionEnabled(true);
+
     getSessionID();
     async function getSessionID() {
       try {
