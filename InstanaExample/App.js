@@ -51,6 +51,7 @@ export default class App extends Component {
   }
 
   async onRunXMLHttpRequest() {
+    Instana.setCollectionEnabled(true);
     var request = new XMLHttpRequest();
     request.onreadystatechange = (e) => {
       if (request.readyState !== 4) {
