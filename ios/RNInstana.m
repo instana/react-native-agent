@@ -10,6 +10,10 @@
 static NSString *const kErrorDomain = @"com.instana.instana-agent-react-native";
 static NSInteger const kErrorDomainCodeWrongRegex = -1;
 
+// Setup OptionKeys
+static NSString *const kCollectionEnabled = @"collectionEnabled";
+static NSString *const kHttpCaptureConfigAutomatic = @"httpCaptureConfigAutomatic";
+
 // Custom Event OptionKeys
 static NSString *const kCustomEventStartTimeKey = @"startTime";
 static NSString *const kCustomEventDurationKey = @"duration";
@@ -31,8 +35,15 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
 RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *)reportingUrl options:(NSDictionary *)options)
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        BOOL enabled = [options[@"collectionEnabled"] boolValue];
-        [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl] httpCaptureConfig: HTTPCaptureConfigAutomatic collectionEnabled: enabled];
+        BOOL enabled = YES;
+        HTTPCaptureConfig config = HTTPCaptureConfigAutomatic;
+        if ([[options allKeys] containsObject: kCollectionEnabled]) {
+            enabled = [options[kCollectionEnabled] boolValue];
+        }
+        if ([[options allKeys] containsObject: kHttpCaptureConfigAutomatic]) {
+            config = [options[kHttpCaptureConfigAutomatic] integerValue];
+        }
+        [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl] httpCaptureConfig: config collectionEnabled: enabled];
     });
 }
 
