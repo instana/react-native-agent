@@ -13,7 +13,7 @@ console.warn(NativeModules);
 export default class App extends Component {
   componentDidMount() {
     var options = {'collectionEnabled': false};
-    Instana.setup('bXor6AsOTXGqrJn4Ymi6gQ', 'https://eum-red-saas.instana.io/mobile', options);
+    Instana.setup('KEY', 'URL', options);
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');
     Instana.setUserName('Nils Mustermann');
