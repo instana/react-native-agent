@@ -35,12 +35,14 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     private final ReactApplicationContext reactContext;
     private String key;
     private String reportingUrl;
+    @Nullable private ReadableMap options;
 
     private static final String CUSTOMEVENT_START_TIME = "startTime";
     private static final String CUSTOMEVENT_DURATION = "duration";
     private static final String CUSTOMEVENT_VIEW_NAME = "viewName";
     private static final String CUSTOMEVENT_META = "meta";
     private static final String CUSTOMEVENT_BACKEND_TRACING_ID = "backendTracingId";
+    private static final String SETUPOPTIONS_COLLECTION_ENABLED = "collectionEnabled";
 
     public InstanaEumModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -60,6 +62,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
         constants.put(CUSTOMEVENT_VIEW_NAME, CUSTOMEVENT_VIEW_NAME);
         constants.put(CUSTOMEVENT_META, CUSTOMEVENT_META);
         constants.put(CUSTOMEVENT_BACKEND_TRACING_ID, CUSTOMEVENT_BACKEND_TRACING_ID);
+        constants.put(SETUPOPTIONS_COLLECTION_ENABLED, SETUPOPTIONS_COLLECTION_ENABLED);
         return constants;
     }
 
@@ -69,7 +72,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
             Activity activity = getCurrentActivity();
             if (activity != null) {
                 Log.i("Instana", "Instana Android Agent successfully retried to set up");
-                doSetup(activity.getApplication(), key, reportingUrl);
+                doSetup(activity.getApplication(), this.key, this.reportingUrl, this.options);
             } else {
                 Log.e("Instana", "Instana Android Agent failed again trying to obtain an Activity. Instana Android Agent won't be set up");
             }
@@ -84,26 +87,47 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     public void onHostDestroy() {}
 
     @ReactMethod
-    public void setup(String key, String reportingUrl) {
+    public void setup(String key, String reportingUrl, @Nullable ReadableMap options) {
         Activity activity = getCurrentActivity();
         if (activity != null) {
-            doSetup(activity.getApplication(), key, reportingUrl);
+            doSetup(activity.getApplication(), key, reportingUrl, options);
         } else {
             Log.w("Instana", "No Activity available on setup() call. Instana Android Agent won't be set up now; will retry when an Activity becomes available");
             this.key = key;
             this.reportingUrl = reportingUrl;
+            this.options = options;
             getReactApplicationContext().addLifecycleEventListener(this);
         }
     }
 
-    private void doSetup(Application application, String key, String reportingUrl) {
+    private void doSetup(Application application, String key, String reportingUrl, @Nullable ReadableMap options) {
         InstanaConfig config = new InstanaConfig(key, reportingUrl);
+        if (options != null) {
+            if (options.hasKey(SETUPOPTIONS_COLLECTION_ENABLED)) {
+                config.setCollectionEnabled((boolean) options.getBoolean(SETUPOPTIONS_COLLECTION_ENABLED));
+            }
+        }
         Instana.setup(application, config);
+    }
+
+    @ReactMethod
+    public void setCollectionEnabled(Boolean enabled) {
+        Instana.setCollectionEnabled(enabled);
     }
 
     @ReactMethod
     public void setView(String viewName) {
         Instana.setView(viewName);
+    }
+
+    @ReactMethod
+    public void isCollectionEnabled(final Promise promise) {
+        Boolean enabled = Instana.isCollectionEnabled();
+        if (enabled != null) {
+            promise.resolve(enabled);
+        } else {
+            promise.reject("Tried to get isCollectionEnabled before it being set");
+        }
     }
 
     @ReactMethod
