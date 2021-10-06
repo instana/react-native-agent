@@ -12,7 +12,6 @@ static NSInteger const kErrorDomainCodeWrongRegex = -1;
 
 // Setup OptionKeys
 static NSString *const kCollectionEnabled = @"collectionEnabled";
-static NSString *const kHttpCaptureConfigAutomatic = @"httpCaptureConfigAutomatic";
 
 // Custom Event OptionKeys
 static NSString *const kCustomEventStartTimeKey = @"startTime";
@@ -25,24 +24,14 @@ static NSString *const kCustomEventBackendTracingIDNameKey = @"backendTracingId"
 
 RCT_EXPORT_MODULE(Instana)
 
-RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *)reportingUrl)
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl]];
-    });
-}
-
 RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *)reportingUrl options:(NSDictionary *)options)
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         BOOL enabled = YES;
-        HTTPCaptureConfig config = HTTPCaptureConfigAutomatic;
         if ([[options allKeys] containsObject: kCollectionEnabled]) {
             enabled = [options[kCollectionEnabled] boolValue];
         }
-        if ([[options allKeys] containsObject: kHttpCaptureConfigAutomatic]) {
-            config = [options[kHttpCaptureConfigAutomatic] integerValue];
-        }
+        HTTPCaptureConfig config = HTTPCaptureConfigAutomatic;
         [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl] httpCaptureConfig: config collectionEnabled: enabled];
     });
 }

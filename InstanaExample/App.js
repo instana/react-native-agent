@@ -12,7 +12,7 @@ console.warn(NativeModules);
 
 export default class App extends Component {
   componentDidMount() {
-    var options = {'collectionEnabled': false, 'httpCaptureConfig': 2};
+    var options = {'collectionEnabled': false};
     Instana.setup('KEY', 'URL', null);
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');
