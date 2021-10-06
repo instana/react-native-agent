@@ -12,8 +12,7 @@ console.warn(NativeModules);
 
 export default class App extends Component {
   componentDidMount() {
-  //   var options = {'collectionEnabled': false, 'httpCaptureConfig': 2};
-  //  Instana.setup('KEY', 'URL', options);
+    var options = {'collectionEnabled': false, 'httpCaptureConfig': 2};
     Instana.setup('KEY', 'URL', null);
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');
@@ -25,6 +24,15 @@ export default class App extends Component {
     async function getSessionID() {
       try {
         var sessionID = await Instana.getSessionID();
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    isCollectionEnabled();
+    async function isCollectionEnabled() {
+      try {
+        var isCollectionEnabled = await Instana.isCollectionEnabled();
       } catch (e) {
         console.error(e);
       }
@@ -88,22 +96,22 @@ export default class App extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <View>
-        <Button
-          onPress={this.onRunFetchAsync}
-          title="Run `fetch`"
-        />
+          <Button
+            onPress={this.onRunFetchAsync}
+            title="Run `fetch`"
+          />
         </View>
         <View  style={{marginTop:10}}>
-        <Button
-          onPress={this.onRunXMLHttpRequest}
-          title="Run `XMLHttpRequest`"
-        />
+          <Button
+            onPress={this.onRunXMLHttpRequest}
+            title="Run `XMLHttpRequest`"
+          />
         </View>
         <View  style={{marginTop:10}}>
-        <Button
-          onPress={this.onSendCustomEvent}
-          title="Send `CustomEvent`"
-        />
+          <Button
+            onPress={this.onSendCustomEvent}
+            title="Send `CustomEvent`"
+          />
         </View>
       </SafeAreaView>
     );
