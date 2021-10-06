@@ -29,15 +29,6 @@ export default class App extends Component {
       }
     }
 
-    isCollectionEnabled();
-    async function isCollectionEnabled() {
-      try {
-        var isCollectionEnabled = await Instana.isCollectionEnabled();
-      } catch (e) {
-        console.error(e);
-      }
-    }
-
     setIgnoreURLsByRegex();
     async function setIgnoreURLsByRegex() {
       try {
