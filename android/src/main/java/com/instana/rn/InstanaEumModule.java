@@ -121,16 +121,6 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     }
 
     @ReactMethod
-    public void isCollectionEnabled(final Promise promise) {
-        Boolean enabled = Instana.isCollectionEnabled();
-        if (enabled != null) {
-            promise.resolve(enabled);
-        } else {
-            promise.reject("Tried to get isCollectionEnabled before it being set");
-        }
-    }
-
-    @ReactMethod
     public void getSessionID(final Promise promise) {
         String sessionId = Instana.getSessionId();
         if (sessionId != null) {
