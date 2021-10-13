@@ -10,6 +10,9 @@
 static NSString *const kErrorDomain = @"com.instana.instana-agent-react-native";
 static NSInteger const kErrorDomainCodeWrongRegex = -1;
 
+// Setup OptionKeys
+static NSString *const kCollectionEnabled = @"collectionEnabled";
+
 // Custom Event OptionKeys
 static NSString *const kCustomEventStartTimeKey = @"startTime";
 static NSString *const kCustomEventDurationKey = @"duration";
@@ -21,10 +24,15 @@ static NSString *const kCustomEventBackendTracingIDNameKey = @"backendTracingId"
 
 RCT_EXPORT_MODULE(Instana)
 
-RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *)reportingUrl)
+RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *)reportingUrl options:(NSDictionary *)options)
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl]];
+        BOOL enabled = YES;
+        if ([[options allKeys] containsObject: kCollectionEnabled]) {
+            enabled = [options[kCollectionEnabled] boolValue];
+        }
+        HTTPCaptureConfig config = HTTPCaptureConfigAutomatic;
+        [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl] httpCaptureConfig: config collectionEnabled: enabled];
     });
 }
 
@@ -127,6 +135,20 @@ RCT_EXPORT_METHOD(getViewName:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromi
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         resolve([Instana viewName]);
+    });
+}
+
+RCT_EXPORT_METHOD(setCollectionEnabled:(BOOL)enabled)
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [Instana setCollectionEnabled: enabled];
+    });
+}
+
+RCT_EXPORT_METHOD(getCollectionEnabled:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        resolve(@([Instana collectionEnabled]));
     });
 }
 

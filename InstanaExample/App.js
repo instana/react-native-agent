@@ -12,13 +12,14 @@ console.warn(NativeModules);
 
 export default class App extends Component {
   componentDidMount() {
-    Instana.setup('Prmco-4ZRq66pMIt2HPB5Q', 'https://eum-red-saas.instana.io/mobile');
+    var options = {'collectionEnabled': false};
+    Instana.setup('KEY', 'URL', null);
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');
     Instana.setUserName('Nils Mustermann');
     Instana.setMeta('randomKey', 'randomValue');
     Instana.setView('MainView');
-    
+
     getSessionID();
     async function getSessionID() {
       try {
@@ -38,7 +39,6 @@ export default class App extends Component {
     }
   }
 
-
   async onRunFetchAsync() {
     try {
       let response = await fetch('https://reactnative.dev/movies.json');
@@ -50,6 +50,7 @@ export default class App extends Component {
   }
 
   async onRunXMLHttpRequest() {
+    Instana.setCollectionEnabled(true);
     var request = new XMLHttpRequest();
     request.onreadystatechange = (e) => {
       if (request.readyState !== 4) {
@@ -86,22 +87,22 @@ export default class App extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <View>
-        <Button
-          onPress={this.onRunFetchAsync}
-          title="Run `fetch`"
-        />
+          <Button
+            onPress={this.onRunFetchAsync}
+            title="Run `fetch`"
+          />
         </View>
         <View  style={{marginTop:10}}>
-        <Button
-          onPress={this.onRunXMLHttpRequest}
-          title="Run `XMLHttpRequest`"
-        />
+          <Button
+            onPress={this.onRunXMLHttpRequest}
+            title="Run `XMLHttpRequest`"
+          />
         </View>
         <View  style={{marginTop:10}}>
-        <Button
-          onPress={this.onSendCustomEvent}
-          title="Send `CustomEvent`"
-        />
+          <Button
+            onPress={this.onSendCustomEvent}
+            title="Send `CustomEvent`"
+          />
         </View>
       </SafeAreaView>
     );
