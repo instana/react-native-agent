@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.0
+- Update native iOS and Android Instana agents
+- Introduce collectionEnabled flag to disable or enable the agent after the setup process
+
 ## 1.5.6
 - Update native iOS Instana agent version to 1.1.18
 
