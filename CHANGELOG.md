@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.6.1
+- Bump native iOS agent to 1.2.2
+
 ## 1.6.0
 - Update native iOS and Android Instana agents
 - Introduce collectionEnabled flag to disable or enable the agent after the setup process
