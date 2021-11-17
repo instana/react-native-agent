@@ -1,5 +1,8 @@
 # Changelog
 
+# 1.6.2
+- Update native iOS agent to version 1.2.4
+
 ## 1.6.1
 - Bump native iOS agent to 1.2.2
 
