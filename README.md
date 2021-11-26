@@ -50,7 +50,7 @@ apply plugin: 'com.instana.android-agent-plugin'
 
 ### iOS
 
-Your project needs to contains at least one Swift file (it can be empty). If you don't have any, please open your Xcode Project in `<YourReactNativeProject>/ios` and add an empty Swift file. Please also let Xcode create the Bridging Header for you.
+Your project needs to contain at least one Swift file (it can be empty). If you don't have any, please open your Xcode Project in `<YourReactNativeProject>/ios` and add an empty Swift file. Please also let Xcode create the Bridging Header for you.
 
 ## Usage
 
