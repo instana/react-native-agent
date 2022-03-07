@@ -4,19 +4,6 @@ apply plugin: "com.instana.android-agent-plugin"
 
 import com.android.build.OutputFile
 
-// Configure the Instana Plugin version
-buildscript {
-    repositories {
-        google()
-        jcenter()
-        mavenCentral()
-        mavenLocal()
-    }
-    dependencies {
-        classpath "com.instana:android-agent-plugin:4.5.3"
-    }
-}
-
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
  * and bundleReleaseJsAndAssets).
