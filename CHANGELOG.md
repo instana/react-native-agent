@@ -1,6 +1,7 @@
 # Changelog
 
 # 1.8.0
+- Support React Native 0.67.3
 - Update native Android agent to version 5.0.3
 
 # 1.7.0
