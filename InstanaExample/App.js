@@ -1,19 +1,18 @@
-/*
- * (c) Copyright IBM Corp. 2021
- * (c) Copyright Instana Inc. and contributors 2021
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Button } from 'react-native';
-import { NativeModules } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Button } from 'react-native';
 import Instana from '@instana/react-native-agent';
-console.warn(Instana);
-console.warn(NativeModules);
 
-export default class App extends Component {
+class App extends Component {
   componentDidMount() {
-    var options = {'collectionEnabled': false};
-    Instana.setup('KEY', 'URL', null);
+    Instana.setup('Prmco-4ZRq66pMIt2HPB5Q', 'https://eum-red-saas.instana.io/mobile', null);
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');
     Instana.setUserName('Nils Mustermann');
@@ -92,13 +91,13 @@ export default class App extends Component {
             title="Run `fetch`"
           />
         </View>
-        <View  style={{marginTop:10}}>
+        <View style={{marginTop:10}}>
           <Button
             onPress={this.onRunXMLHttpRequest}
             title="Run `XMLHttpRequest`"
           />
         </View>
-        <View  style={{marginTop:10}}>
+        <View style={{marginTop:10}}>
           <Button
             onPress={this.onSendCustomEvent}
             title="Send `CustomEvent`"
@@ -117,3 +116,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   }
 });
+
+export default App;

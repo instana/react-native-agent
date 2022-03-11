@@ -1,9 +1,4 @@
-/*
- * (c) Copyright IBM Corp. 2021
- * (c) Copyright Instana Inc. and contributors 2021
- */
-
-package com.instanaexample;
+package com.instanaexample0673;
 
 import com.facebook.react.ReactActivity;
 
@@ -15,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "InstanaExample";
+    return "InstanaExample0673";
   }
 }
