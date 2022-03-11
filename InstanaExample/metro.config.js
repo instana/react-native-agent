@@ -1,19 +1,17 @@
-const path = require("path");
-const watchFolders = [
-  //Relative path to packages directory because I'm in yarn workpspaces
-  path.resolve(__dirname + "/../.."),
-];
+/**
+ * Metro configuration for React Native
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+
 module.exports = {
-  resolver: {
-    extraNodeModules: {},
-  },
   transformer: {
     getTransformOptions: async () => ({
       transform: {
-        // this defeats the RCTDeviceEventEmitter is not a registered callable module
+        experimentalImportSupport: false,
         inlineRequires: true,
       },
     }),
   },
-  watchFolders,
 };
