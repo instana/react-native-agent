@@ -1,5 +1,8 @@
 # Changelog
 
+# 1.8.1
+- Update native iOS agent to version 1.3.1
+
 # 1.8.0
 - Support React Native 0.67.3
 - Update native Android agent to version 5.0.3
