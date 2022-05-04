@@ -40,7 +40,7 @@ class App extends Component {
     redactHTTPQueryByRegEx();
     async function redactHTTPQueryByRegEx() {
       try {
-        await Instana.redactHTTPQueryByRegEx(["Key", "(?i)(passwor(t|d))"]);
+        await Instana.redactHTTPQueryByRegEx(["Key", "passwor(t|d)"]);
       } catch (e) {
         console.warn(e);
       }
