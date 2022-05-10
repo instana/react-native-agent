@@ -176,6 +176,31 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     }
 
     @ReactMethod
+    public void setRedactHTTPQueryByRegex(ReadableArray regexArray, final Promise promise) {
+        List<String> failures = new ArrayList<String>();
+        for (int i = 0; i < regexArray.size(); i++) {
+            String regexString = regexArray.getString(i);
+            try {
+                Pattern p = Pattern.compile(regexString);
+                Instana.getRedactHTTPQuery().add(p);
+            } catch (Exception e) {
+                failures.add(String.format("Failed to add regex `%s`: `%s`", regexString, e.getMessage()));
+            }
+        }
+
+        if (failures.size() == 0) {
+            promise.resolve(true);
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (String failure : failures) {
+                sb.append(failure);
+                sb.append(System.getProperty("line.separator"));
+            }
+            promise.reject(sb.toString());
+        }
+    }
+
+    @ReactMethod
     public void reportEvent(String eventName, @Nullable ReadableMap options) {
         CustomEvent event = new CustomEvent(eventName);
         if (options != null) {

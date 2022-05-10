@@ -12,7 +12,7 @@ import Instana from '@instana/react-native-agent';
 
 class App extends Component {
   componentDidMount() {
-    Instana.setup('your key', 'https://<your host>', null);
+    Instana.setup('<your key>', '<your reporting url>', null);
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');
     Instana.setUserName('Nils Mustermann');
@@ -31,16 +31,16 @@ class App extends Component {
     setIgnoreURLsByRegex();
     async function setIgnoreURLsByRegex() {
       try {
-        await Instana.setIgnoreURLsByRegex(["localhost:8081.*", "example.com"]);
+        await Instana.setIgnoreURLsByRegex(["http:\/\/localhost:8081.*", "example.com"]);
       } catch (e) {
         console.warn(e);
       }
     }
 
-    redactHTTPQueryByRegEx();
-    async function redactHTTPQueryByRegEx() {
+    setRedactHTTPQueryByRegex();
+    async function setRedactHTTPQueryByRegex() {
       try {
-        await Instana.redactHTTPQueryByRegEx(["Key", "(?i)(passwor(t|d))"]);
+        await Instana.setRedactHTTPQueryByRegex(["key", "passwor[td]"]);
       } catch (e) {
         console.warn(e);
       }
@@ -72,7 +72,7 @@ class App extends Component {
       }
     };
 
-    request.open('GET', 'https://reactnative.dev/movies.json?passworD=sec&Key=sec');
+    request.open('GET', 'https://reactnative.dev/movies.json?password=sec&key=sec');
     request.send();
   }
 

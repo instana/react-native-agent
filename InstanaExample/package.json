@@ -10,11 +10,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@instana/react-native-agent": "file:..",
-    "@react-native-community/cli": "^7.0.3",
-    "react": "18.1.0",
-    "react-native": "0.68.1",
-    "react-native-eject": "^0.1.2"
+    "react": "17.0.2",
+    "react-native": "0.67.3",
+    "@instana/react-native-agent": "file:.."
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
