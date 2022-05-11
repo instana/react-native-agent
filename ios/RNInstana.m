@@ -97,27 +97,11 @@ RCT_EXPORT_METHOD(reportEvent:(nonnull NSString *)name options:(NSDictionary *)o
     });
 }
 
-RCT_EXPORT_METHOD(setIgnoreURLsByRegex:(nonnull NSArray <NSString*>*)regexArray resolve:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(setIgnoreURLsByRegex:(nonnull NSArray <NSString*>*)regexPatterns resolve:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSMutableArray <NSRegularExpression*> *regexItems = [@[] mutableCopy];
-        NSMutableArray <NSError*> *errors = [@[] mutableCopy];
-        for (NSString *pattern in regexArray) {
-            NSError *error = nil;
-            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: pattern options: 0 error: &error];
-            if (error != nil) {
-                [errors addObject:error];
-            }
-            if (regex != nil) {
-                [regexItems addObject:regex];
-            }
-        }
-
-        if ([errors count] > 0) {
-            NSDictionary *userinfo = @{@"UnderlyingErrors":errors};
-            NSError *error = [NSError errorWithDomain:kErrorDomain code:kErrorDomainCodeWrongRegex userInfo:userinfo];
-            reject([NSString stringWithFormat:@"%ld", kErrorDomainCodeWrongRegex], @"Wrong RegularExpression pattern", error);
-        } else {
+        NSArray <NSRegularExpression*> *regexItems = [self convertRegexPatterns: regexPatterns rejecter:reject];
+        if ([regexItems count] > 0) {
             [Instana setIgnoreURLsMatching:regexItems];
             resolve(@"Success");
         }
@@ -150,6 +134,40 @@ RCT_EXPORT_METHOD(getCollectionEnabled:(RCTPromiseResolveBlock)resolve rejecter:
     dispatch_async(dispatch_get_main_queue(), ^{
         resolve(@([Instana collectionEnabled]));
     });
+}
+
+RCT_EXPORT_METHOD(setRedactHTTPQueryByRegex:(nonnull NSArray <NSString*>*)regexPatterns resolve:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray <NSRegularExpression*> *regexItems = [self convertRegexPatterns: regexPatterns rejecter:reject];
+        if ([regexItems count] > 0) {
+            [Instana redactHTTPQueryMatching: regexItems];
+            resolve(@"Success");
+        }
+    });
+}
+
+- (NSArray <NSRegularExpression*>*)convertRegexPatterns:(nonnull NSArray <NSString*>*)regexPatterns rejecter:(RCTPromiseRejectBlock)reject {
+    NSMutableArray <NSRegularExpression*> *regexItems = [@[] mutableCopy];
+    NSMutableArray <NSError*> *errors = [@[] mutableCopy];
+    for (NSString *pattern in regexPatterns) {
+        NSError *error = nil;
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: pattern options: 0 error: &error];
+        if (error != nil) {
+            [errors addObject:error];
+        }
+        if (regex != nil) {
+            [regexItems addObject:regex];
+        }
+    }
+    if ([errors count] > 0) {
+        NSDictionary *userinfo = @{@"UnderlyingErrors":errors};
+        NSError *error = [NSError errorWithDomain:kErrorDomain code:kErrorDomainCodeWrongRegex userInfo:userinfo];
+        reject([NSString stringWithFormat:@"%ld", kErrorDomainCodeWrongRegex], @"Wrong RegularExpression pattern", error);
+        return @[];
+    } else {
+        return [regexItems copy];
+    }
 }
 
 @end

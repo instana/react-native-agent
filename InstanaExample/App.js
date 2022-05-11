@@ -12,13 +12,13 @@ import Instana from '@instana/react-native-agent';
 
 class App extends Component {
   componentDidMount() {
-    Instana.setup('Prmco-4ZRq66pMIt2HPB5Q', 'https://eum-red-saas.instana.io/mobile', null);
+    Instana.setup('<your key>', '<your reporting url>', null);
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');
     Instana.setUserName('Nils Mustermann');
     Instana.setMeta('randomKey', 'randomValue');
     Instana.setView('MainView');
-
+  
     getSessionID();
     async function getSessionID() {
       try {
@@ -31,7 +31,16 @@ class App extends Component {
     setIgnoreURLsByRegex();
     async function setIgnoreURLsByRegex() {
       try {
-        await Instana.setIgnoreURLsByRegex(["http:\/\/localhost:8081.*", "example.com", "["]);
+        await Instana.setIgnoreURLsByRegex(["http:\/\/localhost:8081.*", "example.com"]);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    setRedactHTTPQueryByRegex();
+    async function setRedactHTTPQueryByRegex() {
+      try {
+        await Instana.setRedactHTTPQueryByRegex(["key", "passwor[td]"]);
       } catch (e) {
         console.warn(e);
       }
@@ -63,7 +72,7 @@ class App extends Component {
       }
     };
 
-    request.open('GET', 'https://reactnative.dev/movies.json');
+    request.open('GET', 'https://reactnative.dev/movies.json?password=sec&key=sec');
     request.send();
   }
 

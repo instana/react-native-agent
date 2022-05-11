@@ -22,7 +22,7 @@ The first time:
 
 Every time you make change to the RN wrapper:
 1. `cd $PROJECT/android && ./gradlew build`
-2. `cd $PROJECT/InstanaExample && yarn install --check-files`
+2. `cd $PROJECT/InstanaExample && yarn install --check-files && rm -rf node_modules/@instana/react-native-agent/InstanaExample`
 3. `cd $PROJECT/InstanaExample/android && ./gradlew clean --refresh-dependencies`
 4. `cd $PROJECT/InstanaExample && npx react-native run-android`
 
