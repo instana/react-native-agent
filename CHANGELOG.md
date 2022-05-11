@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.9.0
+- Add feature to redact query parameters
+- Update native iOS agent to version 1.4.0
+- Update native Android agent to version 5.1.0
+
 # 1.8.1
 - Update native iOS agent to version 1.3.1
 
