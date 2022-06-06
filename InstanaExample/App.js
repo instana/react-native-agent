@@ -45,6 +45,15 @@ class App extends Component {
         console.warn(e);
       }
     }
+
+    setCaptureHeadersByRegex();
+    async function setCaptureHeadersByRegex() {
+      try {
+        await Instana.setCaptureHeadersByRegex([".*"]); // Please note that this regex will capture ALL request/response headers. You might want to provide a more specific set of regex
+      } catch (e) {
+        console.warn(e);
+      }
+    }
   }
 
   async onRunFetchAsync() {
