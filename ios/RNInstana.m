@@ -147,6 +147,17 @@ RCT_EXPORT_METHOD(setRedactHTTPQueryByRegex:(nonnull NSArray <NSString*>*)regexP
     });
 }
 
+RCT_EXPORT_METHOD(setCaptureHeadersByRegex:(nonnull NSArray <NSString*>*)regexPatterns resolve:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray <NSRegularExpression*> *regexItems = [self convertRegexPatterns: regexPatterns rejecter:reject];
+        if ([regexItems count] > 0) {
+            [Instana setCaptureHeadersMatching: regexItems];
+            resolve(@"Success");
+        }
+    });
+}
+
 - (NSArray <NSRegularExpression*>*)convertRegexPatterns:(nonnull NSArray <NSString*>*)regexPatterns rejecter:(RCTPromiseRejectBlock)reject {
     NSMutableArray <NSRegularExpression*> *regexItems = [@[] mutableCopy];
     NSMutableArray <NSError*> *errors = [@[] mutableCopy];

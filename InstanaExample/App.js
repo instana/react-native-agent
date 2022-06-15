@@ -58,7 +58,17 @@ class App extends Component {
 
   async onRunFetchAsync() {
     try {
-      let response = await fetch('https://reactnative.dev/movies.json');
+      let response = await fetch('https://reactnative.dev/movies.json',
+      {
+        method: 'POST',
+        headers: {
+          'X-Key': 'some'
+        },
+        body: JSON.stringify({
+          firstParam: 'yourValue',
+          secondParam: 'yourOtherValue'
+        })
+      });
       let json = await response.json()
       console.log('success', json);
     } catch (error) {
