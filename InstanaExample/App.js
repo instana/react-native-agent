@@ -49,7 +49,7 @@ class App extends Component {
     setCaptureHeadersByRegex();
     async function setCaptureHeadersByRegex() {
       try {
-        await Instana.setCaptureHeadersByRegex([".*"]); // Please note that this regex will capture ALL request/response headers. You might want to provide a more specific set of regex
+        await Instana.setCaptureHeadersByRegex(["cache-control", "etag"]);
       } catch (e) {
         console.warn(e);
       }
@@ -58,17 +58,7 @@ class App extends Component {
 
   async onRunFetchAsync() {
     try {
-      let response = await fetch('https://reactnative.dev/movies.json',
-      {
-        method: 'POST',
-        headers: {
-          'X-Key': 'some'
-        },
-        body: JSON.stringify({
-          firstParam: 'yourValue',
-          secondParam: 'yourOtherValue'
-        })
-      });
+      let response = await fetch('https://reactnative.dev/movies.json');
       let json = await response.json()
       console.log('success', json);
     } catch (error) {
