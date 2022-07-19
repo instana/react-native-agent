@@ -45,6 +45,15 @@ class App extends Component {
         console.warn(e);
       }
     }
+
+    setCaptureHeadersByRegex();
+    async function setCaptureHeadersByRegex() {
+      try {
+        await Instana.setCaptureHeadersByRegex(["cache-control", "etag"]);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
   }
 
   async onRunFetchAsync() {
