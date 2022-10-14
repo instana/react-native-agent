@@ -3,7 +3,7 @@
 # 1.10.0
 - Add feature to capture request/response headers
 - Update native iOS agent to version 1.5.2
-- Update native Android agent to version 5.2.2
+- Update native Android agent to version 5.2.3
 
 # 1.9.0
 - Add feature to redact query parameters
