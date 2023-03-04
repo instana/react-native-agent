@@ -56,7 +56,7 @@ Your project needs to contain at least one Swift file (it can be empty). If you 
 
 ## Usage
 
-Please refer to our [React Native API documentation](https://docs.instana.io/products/mobile_app_monitoring/react_native_api/).
+Please refer to our [React Native API documentation](https://www.ibm.com/docs/en/instana-observability/current?topic=monitoring-react-native-api).
 
 ## Recommendation
 
