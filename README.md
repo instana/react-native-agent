@@ -27,7 +27,7 @@ For React Native 0.63.3 or earlier, please use:
 
 For React Native 0.63.4 or later, please use: 
 - Instana React Native 1.10.0
-- Instana Android Plugin 5.2.3
+- Instana Android Plugin 5.2.4
 - Android Gradle Plugin 4.2.2 or later
 - Gradle 7.2 or later
 
@@ -56,7 +56,7 @@ Your project needs to contain at least one Swift file (it can be empty). If you 
 
 ## Usage
 
-Please refer to our [React Native API documentation](https://docs.instana.io/products/mobile_app_monitoring/react_native_api/).
+Please refer to our [React Native API documentation](https://www.ibm.com/docs/en/instana-observability/current?topic=monitoring-react-native-api).
 
 ## Recommendation
 

@@ -1,5 +1,8 @@
 # Changelog
 
+# 1.11.0
+- Update native Android agent to version 5.2.4
+
 # 1.10.0
 - Add feature to capture request/response headers
 - Update native iOS agent to version 1.5.2
