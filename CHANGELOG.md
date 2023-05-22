@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.12.0
+- Upgrade Gradle version to 6.7.1 to fix build issue
+- Update yarn.lock to match with android-agent 5.2.4 & iOSAgent 1.5.2
+- InstanaExample fixes and upgrade
+
 # 1.11.0
 - Update native Android agent to version 5.2.4
 
