@@ -75,9 +75,9 @@ PODS:
   - glog (0.3.5)
   - GzipSwift (5.1.1)
   - instana_react-native-agent (1.12.0):
-    - InstanaAgent (= 1.5.2)
+    - InstanaAgent (= 1.6.4)
     - React-Core
-  - InstanaAgent (1.5.2):
+  - InstanaAgent (1.6.4):
     - GzipSwift
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
@@ -353,7 +353,7 @@ PODS:
     - React-jsi (= 0.68.7)
     - React-logger (= 0.68.7)
     - React-perflogger (= 0.68.7)
-  - SocketRocket (0.6.0)
+  - SocketRocket (0.6.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -520,8 +520,8 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 476ee3e89abb49e07f822b48323c51c57124b572
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
-  instana_react-native-agent: 45883efa089a3da3b8d1d175bef285ee98828383
-  InstanaAgent: e27930925efca17f8d53e926222b235583e58bb0
+  instana_react-native-agent: 78320b2ced11efb680ab89b5915210e2df8d410f
+  InstanaAgent: 71de5a4b8fe336d62b199f9c3fb004430ab0548f
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8
@@ -549,7 +549,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 2a4bf853281d4981ab471509102300d3c9e6c693
   React-runtimeexecutor: 18932e685b4893be88d1efc18f5f8ca1c9cd39d8
   ReactCommon: 29bb6fad3242e30e9d049bc9d592736fa3da9e50
-  SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
+  SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 0bc4b37c3b8a345336ff601e2cf7d9704bab7e93
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

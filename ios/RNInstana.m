@@ -12,6 +12,9 @@ static NSInteger const kErrorDomainCodeWrongRegex = -1;
 
 // Setup OptionKeys
 static NSString *const kCollectionEnabled = @"collectionEnabled";
+static NSString *const kHttpCaptureConfig = @"httpCaptureConfig";
+static NSString *const kEnableCrashReporting = @"enableCrashReporting";
+static NSString *const kSlowSendInterval = @"slowSendInterval";
 
 // Custom Event OptionKeys
 static NSString *const kCustomEventStartTimeKey = @"startTime";
@@ -31,8 +34,30 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
         if ([[options allKeys] containsObject: kCollectionEnabled]) {
             enabled = [options[kCollectionEnabled] boolValue];
         }
-        HTTPCaptureConfig config = HTTPCaptureConfigAutomatic;
-        [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl] httpCaptureConfig: config collectionEnabled: enabled];
+
+        HTTPCaptureConfig httpCapture = HTTPCaptureConfigAutomatic;
+        if ([[options allKeys] containsObject: kHttpCaptureConfig]) {
+            httpCapture = [options[kHttpCaptureConfig] intValue];
+        }
+
+        BOOL crashReporting = NO;
+        if ([[options allKeys] containsObject: kEnableCrashReporting]) {
+            crashReporting = [options[kEnableCrashReporting] boolValue];
+        }
+
+        double slowSendInterval = 0.0;
+        if ([[options allKeys] containsObject: kSlowSendInterval]) {
+            slowSendInterval = [options[kSlowSendInterval] doubleValue];
+        }
+
+        InstanaSetupOptions *setupOptions = [[InstanaSetupOptions alloc]
+                                    initWithHttpCaptureConfig: httpCapture
+                                    collectionEnabled: enabled
+                                    enableCrashReporting: crashReporting
+                                    slowSendInterval: slowSendInterval];
+
+        #pragma clang diagnostic ignored "-Wunused-result"
+        [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl] options: setupOptions];
     });
 }
 
