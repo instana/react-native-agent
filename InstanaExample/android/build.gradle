@@ -8,14 +8,14 @@ buildscript {
         targetSdkVersion = 31
         ndkVersion = "21.4.7075529"
 
-        instanaAgentVersion = "5.2.4"
+        instanaAgentVersion = "6.0.4"
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath('com.android.tools.build:gradle:7.4.2')
+        classpath('com.android.tools.build:gradle:7.2.2')
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath "com.instana:android-agent-plugin:$instanaAgentVersion"

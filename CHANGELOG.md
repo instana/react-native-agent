@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.0.0
+- Update native Android agent to version 6.0.4
+
 # 1.12.1
 - Update native iOS agent to version 1.6.4 which fixed http response header capture issue
 
