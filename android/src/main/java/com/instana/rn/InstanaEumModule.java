@@ -43,6 +43,9 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     private static final String CUSTOMEVENT_META = "meta";
     private static final String CUSTOMEVENT_BACKEND_TRACING_ID = "backendTracingId";
     private static final String SETUPOPTIONS_COLLECTION_ENABLED = "collectionEnabled";
+    private static final String SETUPOPTIONS_ENABLE_CRASH_REPORTING = "enableCrashReporting";
+    private static final String SETUPOPTIONS_SLOW_SEND_INTERVAL = "slowSendInterval";
+    private static final String SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS = "usiRefreshTimeIntervalInHrs";
 
     public InstanaEumModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -63,6 +66,9 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
         constants.put(CUSTOMEVENT_META, CUSTOMEVENT_META);
         constants.put(CUSTOMEVENT_BACKEND_TRACING_ID, CUSTOMEVENT_BACKEND_TRACING_ID);
         constants.put(SETUPOPTIONS_COLLECTION_ENABLED, SETUPOPTIONS_COLLECTION_ENABLED);
+        constants.put(SETUPOPTIONS_ENABLE_CRASH_REPORTING, SETUPOPTIONS_ENABLE_CRASH_REPORTING);
+        constants.put(SETUPOPTIONS_SLOW_SEND_INTERVAL, SETUPOPTIONS_SLOW_SEND_INTERVAL);
+        constants.put(SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS, SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS);
         return constants;
     }
 
@@ -104,7 +110,20 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
         InstanaConfig config = new InstanaConfig(key, reportingUrl);
         if (options != null) {
             if (options.hasKey(SETUPOPTIONS_COLLECTION_ENABLED)) {
-                config.setCollectionEnabled((boolean) options.getBoolean(SETUPOPTIONS_COLLECTION_ENABLED));
+                boolean collectionEnabled = (boolean) options.getBoolean(SETUPOPTIONS_COLLECTION_ENABLED);
+                config.setCollectionEnabled(collectionEnabled);
+            }
+            if (options.hasKey(SETUPOPTIONS_ENABLE_CRASH_REPORTING)) {
+                boolean enableCrashReporting = (boolean) options.getBoolean(SETUPOPTIONS_ENABLE_CRASH_REPORTING);
+                config.setEnableCrashReporting(enableCrashReporting);
+            }
+            if (options.hasKey(SETUPOPTIONS_SLOW_SEND_INTERVAL)) {
+                double interval = (double) options.getDouble(SETUPOPTIONS_SLOW_SEND_INTERVAL);
+                config.setSlowSendIntervalMillis((long) (interval * 1000));
+            }
+            if (options.hasKey(SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS)) {
+                double hours = (double) options.getDouble(SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS);
+                config.setUsiRefreshTimeIntervalInHrs((long) hours);
             }
         }
         Instana.setup(application, config);

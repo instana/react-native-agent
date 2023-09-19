@@ -15,6 +15,7 @@ static NSString *const kCollectionEnabled = @"collectionEnabled";
 static NSString *const kHttpCaptureConfig = @"httpCaptureConfig";
 static NSString *const kEnableCrashReporting = @"enableCrashReporting";
 static NSString *const kSlowSendInterval = @"slowSendInterval";
+static NSString *const kUsiRefreshTimeIntervalInHrs = @"usiRefreshTimeIntervalInHrs";
 
 // Custom Event OptionKeys
 static NSString *const kCustomEventStartTimeKey = @"startTime";
@@ -50,11 +51,17 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
             slowSendInterval = [options[kSlowSendInterval] doubleValue];
         }
 
+        double usiRefreshTimeIntervalInHrs = -1.0;
+        if ([[options allKeys] containsObject: kUsiRefreshTimeIntervalInHrs]) {
+            usiRefreshTimeIntervalInHrs = [options[kUsiRefreshTimeIntervalInHrs] doubleValue];
+        }
+
         InstanaSetupOptions *setupOptions = [[InstanaSetupOptions alloc]
                                     initWithHttpCaptureConfig: httpCapture
                                     collectionEnabled: enabled
                                     enableCrashReporting: crashReporting
-                                    slowSendInterval: slowSendInterval];
+                                    slowSendInterval: slowSendInterval
+                                    usiRefreshTimeIntervalInHrs: usiRefreshTimeIntervalInHrs];
 
         #pragma clang diagnostic ignored "-Wunused-result"
         [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl] options: setupOptions];

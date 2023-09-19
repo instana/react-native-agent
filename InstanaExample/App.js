@@ -12,7 +12,10 @@ import Instana from '@instana/react-native-agent';
 
 class App extends Component {
   componentDidMount() {
-    Instana.setup('<your key>', '<your reporting url>', null);
+    var options = {}
+//    options.usiRefreshTimeIntervalInHrs = 24.0;
+    Instana.setup('<your key>', '<your reporting url>', options);
+
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');
     Instana.setUserName('Nils Mustermann');

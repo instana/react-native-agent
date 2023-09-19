@@ -74,10 +74,10 @@ PODS:
   - fmt (6.2.1)
   - glog (0.3.5)
   - GzipSwift (5.1.1)
-  - instana_react-native-agent (1.12.0):
-    - InstanaAgent (= 1.6.4)
+  - instana_react-native-agent (2.0.0):
+    - InstanaAgent (= 1.6.5)
     - React-Core
-  - InstanaAgent (1.6.4):
+  - InstanaAgent (1.6.5):
     - GzipSwift
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
@@ -520,8 +520,8 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 476ee3e89abb49e07f822b48323c51c57124b572
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
-  instana_react-native-agent: 78320b2ced11efb680ab89b5915210e2df8d410f
-  InstanaAgent: 71de5a4b8fe336d62b199f9c3fb004430ab0548f
+  instana_react-native-agent: 83aad0b223eed4ca4fec55d3e90cc620b188b0e7
+  InstanaAgent: 05f16ff2e2390e057ce5a4ef98ae0a4c5c523747
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8
@@ -553,6 +553,6 @@ SPEC CHECKSUMS:
   Yoga: 0bc4b37c3b8a345336ff601e2cf7d9704bab7e93
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: d0748a61a81ae225417dadf2e81546da27b69966
+PODFILE CHECKSUM: e9138e64e7214728d64beedbedf92e9840c29447
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1

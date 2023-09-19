@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.0.1
+- Support user session id by upgrading iOSAgent to 1.6.5, android-agent to 6.0.7
+
 # 2.0.0
 - Update native Android agent to version 6.0.4
 

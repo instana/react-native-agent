@@ -27,7 +27,7 @@ For React Native 0.63.3 or earlier, please use:
 
 For React Native 0.63.4 or later, please use: 
 - Instana React Native 2.0.0
-- Instana Android Plugin 6.0.4
+- Instana Android Plugin 6.0.7
 - Android Gradle Plugin 7.2.2 or later
 - Gradle 7.3.3 or later
 
