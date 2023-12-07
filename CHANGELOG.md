@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.0.2
+- Integrate with iOSAgent 1.6.7 and android-agent 6.0.9
+
 # 2.0.1
 - Support user session id by upgrading iOSAgent to 1.6.5, android-agent to 6.0.7
 
