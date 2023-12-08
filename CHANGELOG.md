@@ -1,10 +1,17 @@
 # Changelog
 
 # 2.0.2
-- Integrate with iOSAgent 1.6.7 and android-agent 6.0.9
-
-# 2.0.1
-- Support user session id by upgrading iOSAgent to 1.6.5, android-agent to 6.0.7
+- Integrate with android-agent 6.0.9:
+- `Instana.captureHeaders`, `Instana.ignoreURLs`, `Instana.redactHTTPQuery` type updated to `Collections.synchronizedList`, to avoid concurrent update exceptions
+- Version update strategy changed with SSOT from `version.gradle` file.
+- `README.md` file updated with kotlin-script support details
+- Change beacon id from 128 bit UUID to 64 bit hex string
+- ASM 9 upgrade to support JAVA_17 with sealed classes
+- Modifying property declarations for variables within the constructor of Instana Configuration to accommodate updates in Java-based configuration.
+- Integrate with iOSAgent 1.6.7:
+- Fix unit test cases that failed in command line execution or in Xcode 15
+- Change beacon id from 128 bit UUID to 64 bit hex string
+- Add user_session_id (usi) to beacons
 
 # 2.0.0
 - Update native Android agent to version 6.0.4
