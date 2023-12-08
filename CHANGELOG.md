@@ -4,7 +4,6 @@
 - Integrate with android-agent 6.0.9:
 - `Instana.captureHeaders`, `Instana.ignoreURLs`, `Instana.redactHTTPQuery` type updated to `Collections.synchronizedList`, to avoid concurrent update exceptions
 - Version update strategy changed with SSOT from `version.gradle` file.
-- `README.md` file updated with kotlin-script support details
 - Change beacon id from 128 bit UUID to 64 bit hex string
 - ASM 9 upgrade to support JAVA_17 with sealed classes
 - Modifying property declarations for variables within the constructor of Instana Configuration to accommodate updates in Java-based configuration.
