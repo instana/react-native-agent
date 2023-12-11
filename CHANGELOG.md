@@ -1,5 +1,15 @@
 # Changelog
 
+# 2.0.2
+- Integrate with android-agent 6.0.9:
+- `Instana.captureHeaders`, `Instana.ignoreURLs`, `Instana.redactHTTPQuery` type updated to `Collections.synchronizedList`, to avoid concurrent update exceptions
+- Change beacon id from 128 bit UUID to 64 bit hex string
+- ASM 9 upgrade to support JAVA_17 with sealed classes
+
+- Integrate with iOSAgent 1.6.7:
+- Fix unit test cases that failed in command line execution or in Xcode 15
+- Change beacon id from 128 bit UUID to 64 bit hex string
+
 # 2.0.1
 - Support user session id by upgrading iOSAgent to 1.6.5, android-agent to 6.0.7
 
