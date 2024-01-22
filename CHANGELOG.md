@@ -1,5 +1,9 @@
 # Changelog
 
+# 2.0.3
+- Pass react-native-agent id and version down to iOSAgent and android-agent
+- Upgrade iOSAgent version to 1.6.8, android-agent version to 6.0.12
+
 # 2.0.2
 - Integrate with android-agent 6.0.9:
 - `Instana.captureHeaders`, `Instana.ignoreURLs`, `Instana.redactHTTPQuery` type updated to `Collections.synchronizedList`, to avoid concurrent update exceptions

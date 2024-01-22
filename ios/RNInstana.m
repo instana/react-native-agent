@@ -60,11 +60,19 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
                                     initWithHttpCaptureConfig: httpCapture
                                     collectionEnabled: enabled
                                     enableCrashReporting: crashReporting
+                                    suspendReportingOnLowBattery: false
+                                    suspendReportingOnCellular: false
                                     slowSendInterval: slowSendInterval
                                     usiRefreshTimeIntervalInHrs: usiRefreshTimeIntervalInHrs];
 
+        HybridAgentOptions* hybridOptions = [[HybridAgentOptions alloc] initWithId: @"r" version: @"2.0.3"];
+
         #pragma clang diagnostic ignored "-Wunused-result"
-        [Instana setupWithKey:key reportingURL:[NSURL URLWithString:reportingUrl] options: setupOptions];
+        (void)[Instana setupInternalWithKey: key
+                               reportingURL: [NSURL URLWithString:reportingUrl]
+                                    options: setupOptions
+                              hybridOptions: hybridOptions];
+
     });
 }
 

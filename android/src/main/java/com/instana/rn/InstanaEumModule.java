@@ -26,6 +26,7 @@ import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.Promise;
 import com.instana.android.Instana;
 import com.instana.android.CustomEvent;
+import com.instana.android.core.HybridAgentOptions;
 import com.instana.android.core.InstanaConfig;
 
 import javax.annotation.Nullable;
@@ -126,7 +127,9 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
                 config.setUsiRefreshTimeIntervalInHrs((long) hours);
             }
         }
-        Instana.setup(application, config);
+
+        HybridAgentOptions hybridAgentOptions = new HybridAgentOptions("r", "2.0.3");
+        Instana.setupInternal(application, config, hybridAgentOptions);
     }
 
     @ReactMethod
