@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.0.4
+- Fix gradle 8 issue for android platform
+
 # 2.0.3
 - Pass react-native-agent id and version down to iOSAgent and android-agent
 - Upgrade iOSAgent version to 1.6.8, android-agent version to 6.0.12
