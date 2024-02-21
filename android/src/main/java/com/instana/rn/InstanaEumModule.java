@@ -43,6 +43,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     private static final String CUSTOMEVENT_VIEW_NAME = "viewName";
     private static final String CUSTOMEVENT_META = "meta";
     private static final String CUSTOMEVENT_BACKEND_TRACING_ID = "backendTracingId";
+    private static final String CUSTOM_METRIC = "customMetric";
     private static final String SETUPOPTIONS_COLLECTION_ENABLED = "collectionEnabled";
     private static final String SETUPOPTIONS_ENABLE_CRASH_REPORTING = "enableCrashReporting";
     private static final String SETUPOPTIONS_SLOW_SEND_INTERVAL = "slowSendInterval";
@@ -66,6 +67,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
         constants.put(CUSTOMEVENT_VIEW_NAME, CUSTOMEVENT_VIEW_NAME);
         constants.put(CUSTOMEVENT_META, CUSTOMEVENT_META);
         constants.put(CUSTOMEVENT_BACKEND_TRACING_ID, CUSTOMEVENT_BACKEND_TRACING_ID);
+        constants.put(CUSTOM_METRIC, CUSTOM_METRIC);
         constants.put(SETUPOPTIONS_COLLECTION_ENABLED, SETUPOPTIONS_COLLECTION_ENABLED);
         constants.put(SETUPOPTIONS_ENABLE_CRASH_REPORTING, SETUPOPTIONS_ENABLE_CRASH_REPORTING);
         constants.put(SETUPOPTIONS_SLOW_SEND_INTERVAL, SETUPOPTIONS_SLOW_SEND_INTERVAL);
@@ -128,7 +130,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
             }
         }
 
-        HybridAgentOptions hybridAgentOptions = new HybridAgentOptions("r", "2.0.4");
+        HybridAgentOptions hybridAgentOptions = new HybridAgentOptions("r", "2.0.5");
         Instana.setupInternal(application, config, hybridAgentOptions);
     }
 
@@ -272,6 +274,9 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
                     metaMap.put(key, readableMap.getString(key));
                 }
                 event.setMeta(metaMap);
+            }
+            if (options.hasKey(CUSTOM_METRIC)) {
+                event.setCustomMetric(options.getDouble(CUSTOM_METRIC));
             }
         }
         Instana.reportEvent(event);

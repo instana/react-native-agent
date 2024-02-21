@@ -23,6 +23,7 @@ static NSString *const kCustomEventDurationKey = @"duration";
 static NSString *const kCustomEventViewNameKey = @"viewName";
 static NSString *const kCustomEventMetaNameKey = @"meta";
 static NSString *const kCustomEventBackendTracingIDNameKey = @"backendTracingId";
+static NSString *const kCustomMetric = @"customMetric";
 
 @implementation RNInstana
 
@@ -65,7 +66,7 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
                                     slowSendInterval: slowSendInterval
                                     usiRefreshTimeIntervalInHrs: usiRefreshTimeIntervalInHrs];
 
-        HybridAgentOptions* hybridOptions = [[HybridAgentOptions alloc] initWithId: @"r" version: @"2.0.4"];
+        HybridAgentOptions* hybridOptions = [[HybridAgentOptions alloc] initWithId: @"r" version: @"2.0.5"];
 
         #pragma clang diagnostic ignored "-Wunused-result"
         (void)[Instana setupInternalWithKey: key
@@ -120,6 +121,10 @@ RCT_EXPORT_METHOD(reportEvent:(nonnull NSString *)name options:(NSDictionary *)o
         NSDictionary <NSString*, NSString*> *meta = [options objectForKey: kCustomEventMetaNameKey];
         id viewName = [options objectForKey: kCustomEventViewNameKey];
         id backendTracingID = [options objectForKey: kCustomEventBackendTracingIDNameKey];
+        double customMetric = NAN;
+        if ([[options allKeys] containsObject: kCustomMetric]) {
+            customMetric = [[options objectForKey: kCustomMetric] doubleValue];
+        }
 
         if (![viewName isKindOfClass:[NSString class]]) {
             viewName = nil;
@@ -133,7 +138,8 @@ RCT_EXPORT_METHOD(reportEvent:(nonnull NSString *)name options:(NSDictionary *)o
                     backendTracingID:backendTracingID
                                error:nil
                                 meta:meta
-                            viewName:viewName];
+                            viewName:viewName
+                        customMetric:customMetric];
     });
 }
 

@@ -1,5 +1,9 @@
 # Changelog
 
+# 2.0.5
+- CustomMetric field support in reportEvent method
+- Upgrade iOSAgent to 1.6.9, android-agent to 6.0.14
+
 # 2.0.4
 - Fix gradle 8 issue for android platform
 

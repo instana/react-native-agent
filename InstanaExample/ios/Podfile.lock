@@ -74,10 +74,10 @@ PODS:
   - fmt (6.2.1)
   - glog (0.3.5)
   - GzipSwift (5.1.1)
-  - instana_react-native-agent (2.0.4):
-    - InstanaAgent (= 1.6.8)
+  - instana_react-native-agent (2.0.5):
+    - InstanaAgent (= 1.6.9)
     - React-Core
-  - InstanaAgent (1.6.8):
+  - InstanaAgent (1.6.9):
     - GzipSwift
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
@@ -520,8 +520,8 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 476ee3e89abb49e07f822b48323c51c57124b572
   GzipSwift: 893f3e48e597a1a4f62fafcb6514220fcf8287fa
-  instana_react-native-agent: d2667f1c38a14165eab67e5caf83a4d4706221ba
-  InstanaAgent: 516efb29b6522e33cabae6b216691d85ef124ea5
+  instana_react-native-agent: 3b12cd759715c9a9c3825c5572075a63d1a28ba2
+  InstanaAgent: c295dde8ff8e43cfd459c83eaa8ffaceefa0fc9f
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8

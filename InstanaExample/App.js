@@ -89,6 +89,8 @@ class App extends Component {
   }
 
   async onSendCustomEvent() {
+    Instana.reportEvent("simpleCustomEvent", null);
+
     var date = new Date();
     var epochMs = date.getTime();
     Instana.reportEvent("myCustomEvent", {
@@ -100,6 +102,7 @@ class App extends Component {
         keyOne: "value_one",
         keyTwo: "value_two",
       },
+      customMetric: 987.654321,
     });
   }
 
