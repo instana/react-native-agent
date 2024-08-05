@@ -130,7 +130,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
             }
         }
 
-        HybridAgentOptions hybridAgentOptions = new HybridAgentOptions("r", "2.0.5");
+        HybridAgentOptions hybridAgentOptions = new HybridAgentOptions("r", "2.0.6");
         Instana.setupInternal(application, config, hybridAgentOptions);
     }
 

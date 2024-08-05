@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.0.6
+- Support Typescript projects
+
 # 2.0.5
 - CustomMetric field support in reportEvent method
 - Upgrade iOSAgent to 1.6.9, android-agent to 6.0.14
