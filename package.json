@@ -17,6 +17,10 @@
     "CHANGELOG.md",
     "LICENSE"
   ],
+  "scripts": {
+    "test": "jest --coverage"
+  },
+ 
   "publishConfig": {
     "access": "public"
   },
@@ -45,7 +49,16 @@
     "react-native": ">=0.63.4 <1.0.x"
   },
   "devDependencies": {
+    "@babel/core": "^7.25.7",
+    "@babel/preset-env": "^7.25.7",
+    "@babel/preset-react": "^7.25.7",
+    "@babel/runtime": "^7.25.7",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "metro-react-native-babel-preset": "^0.77.0",
     "react": "^16 || ^17 || ^18",
-    "react-native": ">=0.63.4 <1.0.x"
+    "react-native": ">=0.63.4 <1.0.x",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.2"
   }
 }
