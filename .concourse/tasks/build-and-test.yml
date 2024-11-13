@@ -1,0 +1,49 @@
+platform: linux
+image_resource:
+  type: registry-image
+  source:
+    repository: openjdk
+    tag: 11-jre-slim
+
+inputs:
+  - name: source
+  - name: automation-ci
+  - name: react-native-test-app
+
+run:
+  path: bash
+  args:
+    - -c
+    - |
+
+      echo "TEST PIPELINE VERSION - 1.0.3"
+      mv automation-ci/react-native-agent/ci/automation/ci source
+      source source/ci/install_dependencies.sh
+      echo "#####-Get TestApplication for building apk"
+      mv react-native-test-app/react-native-test-automation/TestApplication source
+      
+      echo "#####-Building the React Native APK..."
+      
+      cd source/TestApplication
+      apt-get update && apt-get install -y curl
+      curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+      apt-get install -y nodejs
+      npm install -g yarn
+      npm install
+      cd android
+      echo "sdk.dir=/opt/sdk" >> local.properties
+      ./gradlew clean && cd ..
+      rm -rf node_modules
+      yarn cache clean --force
+      yarn install
+      cd android
+      ./gradlew assembleRelease
+      
+      echo "#####-Create React Native APK as zip and upload to IBM COS..."
+      cd app/build/outputs/apk/release
+      zip test.zip app-release.apk
+      cd ../../../../../../../../
+      mv source/TestApplication/android/app/build/outputs/apk/release/test.zip . 
+
+      echo "#####-Get latest Github Commit ID and upload to IBM COS..."
+      source source/ci/add_apk_to_ibm_cos.sh "$((automation-ibm-cloud-api-key))" "$(cat source/.git/ref)"
