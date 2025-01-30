@@ -31,8 +31,9 @@ describe('Call Instana APIs', () => {
         const key = 'testkey';
         const url = 'https://reportingUrl.com';
         const collectionEnabled = false;
-        Instana.setup(key, url, collectionEnabled);
-        expect(NativeModules.Instana.setup).toHaveBeenCalledWith(key, url, collectionEnabled);
+        const suspendReporting = 'LOW_BATTERY_OR_CELLULAR_CONNECTION'
+        Instana.setup(key, url, {collectionEnabled,suspendReporting});
+        expect(NativeModules.Instana.setup).toHaveBeenCalledWith(key, url, {collectionEnabled,suspendReporting});
     });
 
     test('call setView function', () => {

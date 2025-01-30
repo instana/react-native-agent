@@ -28,6 +28,8 @@ import com.instana.android.Instana;
 import com.instana.android.CustomEvent;
 import com.instana.android.core.HybridAgentOptions;
 import com.instana.android.core.InstanaConfig;
+import com.instana.android.core.SuspendReportingType;
+import com.instana.android.instrumentation.HTTPCaptureConfig;
 
 import javax.annotation.Nullable;
 
@@ -48,6 +50,13 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     private static final String SETUPOPTIONS_ENABLE_CRASH_REPORTING = "enableCrashReporting";
     private static final String SETUPOPTIONS_SLOW_SEND_INTERVAL = "slowSendInterval";
     private static final String SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS = "usiRefreshTimeIntervalInHrs";
+    private static final String SETUPOPTIONS_SUSPEND_REPORTING = "suspendReporting";
+    private static final String SETUPOPTIONS_SUSPEND_REPORTING_LOW_BATTERY_OR_CELLULAR_CONNECTION= "LOW_BATTERY_OR_CELLULAR_CONNECTION";
+    private static final String SETUPOPTIONS_SUSPEND_REPORTING_NEVER= "NEVER";
+    private static final String SETUPOPTIONS_SUSPEND_REPORTING_LOW_BATTERY= "LOW_BATTERY";
+    private static final String SETUPOPTIONS_SUSPEND_REPORTING_CELLULAR_CONNECTION= "CELLULAR_CONNECTION";
+    private static final String SETUPOPTIONS_ANDROID_SUSPEND_REPORTING= "androidSuspendReport";
+    
 
     public InstanaEumModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -62,6 +71,11 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     @Override
     public Map<String, Object> getConstants() {
         final Map<String, Object> constants = new HashMap<>();
+        final Map<String, String> androidSuspendReport = new HashMap<>();
+        androidSuspendReport.put(SETUPOPTIONS_SUSPEND_REPORTING_LOW_BATTERY_OR_CELLULAR_CONNECTION, SETUPOPTIONS_SUSPEND_REPORTING_LOW_BATTERY_OR_CELLULAR_CONNECTION);
+        androidSuspendReport.put(SETUPOPTIONS_SUSPEND_REPORTING_NEVER, SETUPOPTIONS_SUSPEND_REPORTING_NEVER);
+        androidSuspendReport.put(SETUPOPTIONS_SUSPEND_REPORTING_LOW_BATTERY, SETUPOPTIONS_SUSPEND_REPORTING_LOW_BATTERY);
+        androidSuspendReport.put(SETUPOPTIONS_SUSPEND_REPORTING_CELLULAR_CONNECTION, SETUPOPTIONS_SUSPEND_REPORTING_CELLULAR_CONNECTION);
         constants.put(CUSTOMEVENT_START_TIME, CUSTOMEVENT_START_TIME);
         constants.put(CUSTOMEVENT_DURATION, CUSTOMEVENT_DURATION);
         constants.put(CUSTOMEVENT_VIEW_NAME, CUSTOMEVENT_VIEW_NAME);
@@ -72,6 +86,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
         constants.put(SETUPOPTIONS_ENABLE_CRASH_REPORTING, SETUPOPTIONS_ENABLE_CRASH_REPORTING);
         constants.put(SETUPOPTIONS_SLOW_SEND_INTERVAL, SETUPOPTIONS_SLOW_SEND_INTERVAL);
         constants.put(SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS, SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS);
+        constants.put(SETUPOPTIONS_ANDROID_SUSPEND_REPORTING, androidSuspendReport);
         return constants;
     }
 
@@ -110,7 +125,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     }
 
     private void doSetup(Application application, String key, String reportingUrl, @Nullable ReadableMap options) {
-        InstanaConfig config = new InstanaConfig(key, reportingUrl);
+        InstanaConfig config = new InstanaConfig(key, reportingUrl, HTTPCaptureConfig.AUTO, getSuspendReportingType(options));
         if (options != null) {
             if (options.hasKey(SETUPOPTIONS_COLLECTION_ENABLED)) {
                 boolean collectionEnabled = (boolean) options.getBoolean(SETUPOPTIONS_COLLECTION_ENABLED);
@@ -130,8 +145,23 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
             }
         }
 
-        HybridAgentOptions hybridAgentOptions = new HybridAgentOptions("r", "2.0.6");
+        HybridAgentOptions hybridAgentOptions = new HybridAgentOptions("r", "2.0.7");
         Instana.setupInternal(application, config, hybridAgentOptions);
+    }
+
+    private SuspendReportingType getSuspendReportingType(@Nullable ReadableMap options)
+    {
+      if(options.hasKey(SETUPOPTIONS_SUSPEND_REPORTING)){
+        if(SETUPOPTIONS_SUSPEND_REPORTING_LOW_BATTERY_OR_CELLULAR_CONNECTION.equals(options.getString(SETUPOPTIONS_SUSPEND_REPORTING)))
+         return SuspendReportingType.LOW_BATTERY_OR_CELLULAR_CONNECTION;
+        if(SETUPOPTIONS_SUSPEND_REPORTING_NEVER.equals(options.getString(SETUPOPTIONS_SUSPEND_REPORTING)))
+         return SuspendReportingType.NEVER;
+        if(SETUPOPTIONS_SUSPEND_REPORTING_LOW_BATTERY.equals(options.getString(SETUPOPTIONS_SUSPEND_REPORTING)))
+         return SuspendReportingType.LOW_BATTERY;
+        if(SETUPOPTIONS_SUSPEND_REPORTING_CELLULAR_CONNECTION.equals(options.getString(SETUPOPTIONS_SUSPEND_REPORTING)))
+         return SuspendReportingType.CELLULAR_CONNECTION;
+      }
+      return SuspendReportingType.LOW_BATTERY;
     }
 
     @ReactMethod
@@ -168,7 +198,6 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     public void setUserEmail(String userEmail) {
         Instana.setUserEmail(userEmail);
     }
-
     @ReactMethod
     public void setMeta(String key, String value) {
         Instana.getMeta().put(key, value);

@@ -24,6 +24,8 @@ interface SetupOption {
   enableCrashReporting: boolean;
   slowSendInterval: number;
   usiRefreshTimeIntervalInHrs: number;
+  httpCaptureConfig: any;
+  suspendReporting: any;
 }
 
 interface EventOption {

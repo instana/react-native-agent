@@ -66,7 +66,7 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
                                     slowSendInterval: slowSendInterval
                                     usiRefreshTimeIntervalInHrs: usiRefreshTimeIntervalInHrs];
 
-        HybridAgentOptions* hybridOptions = [[HybridAgentOptions alloc] initWithId: @"r" version: @"2.0.6"];
+        HybridAgentOptions* hybridOptions = [[HybridAgentOptions alloc] initWithId: @"r" version: @"2.0.7"];
 
         #pragma clang diagnostic ignored "-Wunused-result"
         (void)[Instana setupInternalWithKey: key
