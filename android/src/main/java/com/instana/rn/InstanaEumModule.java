@@ -56,6 +56,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     private static final String SETUPOPTIONS_SUSPEND_REPORTING_LOW_BATTERY= "LOW_BATTERY";
     private static final String SETUPOPTIONS_SUSPEND_REPORTING_CELLULAR_CONNECTION= "CELLULAR_CONNECTION";
     private static final String SETUPOPTIONS_ANDROID_SUSPEND_REPORTING= "androidSuspendReport";
+    private static final String SETUPOPTIONS_QUERY_TRACKED_DOMAIN_LIST = "queryTrackedDomainList";
     
 
     public InstanaEumModule(ReactApplicationContext reactContext) {
@@ -87,6 +88,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
         constants.put(SETUPOPTIONS_SLOW_SEND_INTERVAL, SETUPOPTIONS_SLOW_SEND_INTERVAL);
         constants.put(SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS, SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS);
         constants.put(SETUPOPTIONS_ANDROID_SUSPEND_REPORTING, androidSuspendReport);
+        constants.put(SETUPOPTIONS_QUERY_TRACKED_DOMAIN_LIST, SETUPOPTIONS_QUERY_TRACKED_DOMAIN_LIST);
         return constants;
     }
 
@@ -142,6 +144,10 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
             if (options.hasKey(SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS)) {
                 double hours = (double) options.getDouble(SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS);
                 config.setUsiRefreshTimeIntervalInHrs((long) hours);
+            }
+            if (options.hasKey(SETUPOPTIONS_QUERY_TRACKED_DOMAIN_LIST)) {
+                ReadableArray regexList = options.getArray(SETUPOPTIONS_QUERY_TRACKED_DOMAIN_LIST);
+                setQueryTrackedDomainList(regexList);
             }
         }
 
@@ -225,6 +231,18 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
                 sb.append(System.getProperty("line.separator"));
             }
             promise.reject(sb.toString());
+        }
+    }
+
+    private void setQueryTrackedDomainList(ReadableArray regexArray) {
+        for (int i = 0; i < regexArray.size(); i++) {
+            String regexString = regexArray.getString(i);
+            try {
+                Pattern p = Pattern.compile(regexString);
+                Instana.getQueryTrackedDomainList().add(p);
+            } catch (Exception e) {
+                Log.i("Instana","Failed to add regex");
+            }
         }
     }
 

@@ -24,6 +24,7 @@ static NSString *const kCustomEventViewNameKey = @"viewName";
 static NSString *const kCustomEventMetaNameKey = @"meta";
 static NSString *const kCustomEventBackendTracingIDNameKey = @"backendTracingId";
 static NSString *const kCustomMetric = @"customMetric";
+static NSString *const kQueryTrackedDomainList = @"queryTrackedDomainList";
 
 @implementation RNInstana
 
@@ -57,6 +58,23 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
             usiRefreshTimeIntervalInHrs = [options[kUsiRefreshTimeIntervalInHrs] doubleValue];
         }
 
+        NSArray<NSRegularExpression *> *queryTrackedDomainList = @[];
+        if ([[options allKeys] containsObject:kQueryTrackedDomainList]) {
+            // Retrieve the array of domain patterns
+            NSArray *domainPatterns = options[kQueryTrackedDomainList];
+            // Create a mutable array to hold the NSRegularExpression objects
+            NSMutableArray *regularExpressions = [NSMutableArray array];
+            // Iterate through each domain pattern and create a regular expression
+            for (NSString *pattern in domainPatterns) {
+                NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+                if (regex) {
+                    [regularExpressions addObject:regex];
+                }
+            }
+            // Assign the regular expressions to the queryTrackedDomainList
+            queryTrackedDomainList = [regularExpressions copy];
+        }
+
         InstanaSetupOptions *setupOptions = [[InstanaSetupOptions alloc]
                                     initWithHttpCaptureConfig: httpCapture
                                     collectionEnabled: enabled
@@ -64,7 +82,11 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
                                     suspendReportingOnLowBattery: false
                                     suspendReportingOnCellular: false
                                     slowSendInterval: slowSendInterval
-                                    usiRefreshTimeIntervalInHrs: usiRefreshTimeIntervalInHrs];
+                                    usiRefreshTimeIntervalInHrs: usiRefreshTimeIntervalInHrs
+                                    autoCaptureScreenNames: false
+                                    debugAllScreenNames: false
+                                    queryTrackedDomainList: queryTrackedDomainList
+                                    dropBeaconReporting: false];
 
         HybridAgentOptions* hybridOptions = [[HybridAgentOptions alloc] initWithId: @"r" version: @"2.0.7"];
 

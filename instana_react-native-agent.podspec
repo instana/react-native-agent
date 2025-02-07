@@ -1,5 +1,7 @@
 require "json"
 
+require "json"
+
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
@@ -12,12 +14,12 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/instana/react-native-agent"
   s.license      = "MIT"
   s.authors      = { "Instana Inc." => "support@instana.com" }
-  s.platforms    = { :ios => "11.0" }
+  s.platforms    = { :ios => "12.0" }
   s.source       = { :git => "https://github.com/instana/react-native-agent.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,swift}"
   s.requires_arc = true
-  s.swift_version = "5.3"
+  s.swift_version = "5.4"
   s.dependency "React-Core"
-  s.dependency "InstanaAgent", "1.6.9"
+  s.dependency "InstanaAgent", "1.8.7"
 end

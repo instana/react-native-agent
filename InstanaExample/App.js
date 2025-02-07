@@ -17,6 +17,7 @@ class App extends Component {
     //    options.usiRefreshTimeIntervalInHrs = 24.0;
     options.suspendReporting =
       Instana.androidSuspendReport.LOW_BATTERY_OR_CELLULAR_CONNECTION;
+    options.queryTrackedDomainList = ["google\.typicode\.com"];
     Instana.setup('<your key>', '<your reporting url>', options);
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');
