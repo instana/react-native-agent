@@ -5,6 +5,7 @@
 - Upgrade iOSAgent to 1.8.7, android-agent to 6.1.0
 - Android: Added queryTrackedDomainList feature to exclude parameters from url other than in this list
 - iOS: Added queryTrackedDomainList feature to exclude parameters from url other than in this list
+- Modifying Instana Type Declaration extending type of Native Modules
 
 # 2.0.6
 - Support Typescript projects

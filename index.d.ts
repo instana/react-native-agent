@@ -1,21 +1,21 @@
 declare module "react-native" {
-  export const NativeModules: {
+  export interface NativeModules {
     Instana: InstanaInterface;
   };
 }
 
 interface InstanaInterface {
   setup(key: string, reportingUrl: string, options?: SetupOption): void;
-  setCollectionEnabled(enabled: ?boolean): void;
+  setCollectionEnabled(enabled?: boolean): void;
   setView(viewName: string): void;
   getSessionID(): Promise<string>;
   setUserID(userID: string): void;
   setUserName(userName: string): void;
   setUserEmail(userEmail: string): void;
   setMeta(key: string, value: string): void;
-  setIgnoreURLsByRegex(regexArray: Array): Promise<any>;
-  setRedactHTTPQueryByRegex(regexArray: Array): Promise<any>;
-  setCaptureHeadersByRegex(regexArray: Array): Promise<any>;
+  setIgnoreURLsByRegex(regexArray: Array<any>): Promise<any>;
+  setRedactHTTPQueryByRegex(regexArray: Array<any>): Promise<any>;
+  setCaptureHeadersByRegex(regexArray: Array<any>): Promise<any>;
   reportEvent(eventName: string, options?: EventOption): void;
 }
 
