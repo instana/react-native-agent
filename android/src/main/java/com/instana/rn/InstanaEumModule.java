@@ -29,7 +29,9 @@ import com.instana.android.CustomEvent;
 import com.instana.android.core.HybridAgentOptions;
 import com.instana.android.core.InstanaConfig;
 import com.instana.android.core.SuspendReportingType;
+import com.instana.android.dropbeaconhandler.RateLimits;
 import com.instana.android.instrumentation.HTTPCaptureConfig;
+import com.instana.android.performance.PerformanceMonitorConfig;
 
 import javax.annotation.Nullable;
 
@@ -57,6 +59,8 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     private static final String SETUPOPTIONS_SUSPEND_REPORTING_CELLULAR_CONNECTION= "CELLULAR_CONNECTION";
     private static final String SETUPOPTIONS_ANDROID_SUSPEND_REPORTING= "androidSuspendReport";
     private static final String SETUPOPTIONS_QUERY_TRACKED_DOMAIN_LIST = "queryTrackedDomainList";
+    private static final String SETUPOPTIONS_DROP_BEACON_REPORTING = "dropBeaconReporting";
+    private static final String SETUPOPTIONS_RATE_LIMITS = "rateLimits";
     
 
     public InstanaEumModule(ReactApplicationContext reactContext) {
@@ -89,6 +93,8 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
         constants.put(SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS, SETUPOPTIONS_USI_REFRESHTIMEINTERVALINHRS);
         constants.put(SETUPOPTIONS_ANDROID_SUSPEND_REPORTING, androidSuspendReport);
         constants.put(SETUPOPTIONS_QUERY_TRACKED_DOMAIN_LIST, SETUPOPTIONS_QUERY_TRACKED_DOMAIN_LIST);
+        constants.put(SETUPOPTIONS_DROP_BEACON_REPORTING, SETUPOPTIONS_DROP_BEACON_REPORTING);
+        constants.put(SETUPOPTIONS_RATE_LIMITS, SETUPOPTIONS_RATE_LIMITS);
         return constants;
     }
 
@@ -149,10 +155,27 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
                 ReadableArray regexList = options.getArray(SETUPOPTIONS_QUERY_TRACKED_DOMAIN_LIST);
                 setQueryTrackedDomainList(regexList);
             }
+            if (options.hasKey(SETUPOPTIONS_DROP_BEACON_REPORTING)) {
+               boolean enableDropBeaconReporting = (boolean) options.getBoolean(SETUPOPTIONS_DROP_BEACON_REPORTING);
+               enableDropBeaconReporting = false;  // turn off the feature until server ready!!!
+               config.setDropBeaconReporting(enableDropBeaconReporting);
+            }
+            if (options.hasKey(SETUPOPTIONS_RATE_LIMITS)) {
+                int rateLimitsInt = (int) options.getInt(SETUPOPTIONS_RATE_LIMITS);
+                config.setRateLimits(rateLimitsFromInt(rateLimitsInt));
+            }
         }
+        PerformanceMonitorConfig perfConfig = new PerformanceMonitorConfig(3000L, 15, false, false, false);
+        config.setPerformanceMonitorConfig(perfConfig);
 
-        HybridAgentOptions hybridAgentOptions = new HybridAgentOptions("r", "2.0.7");
+        HybridAgentOptions hybridAgentOptions = new HybridAgentOptions("r", "2.0.8");
         Instana.setupInternal(application, config, hybridAgentOptions);
+    }
+
+    private RateLimits rateLimitsFromInt(int rateLimitsInt) {
+        if (rateLimitsInt == 1) return RateLimits.MID_LIMITS;
+        if (rateLimitsInt == 2) return RateLimits.MAX_LIMITS;
+        return RateLimits.DEFAULT_LIMITS;
     }
 
     private SuspendReportingType getSuspendReportingType(@Nullable ReadableMap options)

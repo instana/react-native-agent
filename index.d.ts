@@ -19,6 +19,22 @@ interface InstanaInterface {
   reportEvent(eventName: string, options?: EventOption): void;
 }
 
+/**
+  * Rate-Limiter configuration for the maximum number of beacons allowed within specific time intervals:
+  *
+  * - 0 (DEFAULT_LIMITS):
+  *     - 500 beacons per 5 minutes
+  *     - 20 beacons per 10 seconds
+  *
+  * - 1 (MID_LIMITS):
+  *     - 1000 beacons per 5 minutes
+  *     - 40 beacons per 10 seconds
+  *
+  * - 2 (MAX_LIMITS):
+  *     - 2500 beacons per 5 minutes
+  *     - 100 beacons per 10 seconds
+*/
+
 interface SetupOption {
   collectionEnabled: boolean;
   enableCrashReporting: boolean;
@@ -26,6 +42,8 @@ interface SetupOption {
   usiRefreshTimeIntervalInHrs: number;
   httpCaptureConfig: any;
   suspendReporting: any;
+  dropBeaconReporting: boolean;
+  rateLimits: any;
 }
 
 interface EventOption {

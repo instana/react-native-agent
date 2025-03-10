@@ -16,6 +16,8 @@ static NSString *const kHttpCaptureConfig = @"httpCaptureConfig";
 static NSString *const kEnableCrashReporting = @"enableCrashReporting";
 static NSString *const kSlowSendInterval = @"slowSendInterval";
 static NSString *const kUsiRefreshTimeIntervalInHrs = @"usiRefreshTimeIntervalInHrs";
+static NSString *const kDropBeaconReporting = @"dropBeaconReporting";
+static NSString *const kRateLimits = @"rateLimits";
 
 // Custom Event OptionKeys
 static NSString *const kCustomEventStartTimeKey = @"startTime";
@@ -74,6 +76,21 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
             // Assign the regular expressions to the queryTrackedDomainList
             queryTrackedDomainList = [regularExpressions copy];
         }
+        BOOL dropBeaconReporting = NO;
+        if ([[options allKeys] containsObject: kDropBeaconReporting]) {
+            dropBeaconReporting = [options[kDropBeaconReporting] boolValue];
+            dropBeaconReporting = false;  // turn off the feature until server ready!!!
+        }
+
+        RateLimits rateLimits = RateLimitsDEFAULT_LIMITS;
+        if ([[options allKeys] containsObject: kRateLimits]) {
+             rateLimits = [self rateLimitTypeFromObject:(options[kRateLimits])];
+        }
+
+        InstanaPerformanceConfig* performanceConfig = [[InstanaPerformanceConfig alloc] init];
+        [performanceConfig setEnableAppStartTimeReport: false];
+        [performanceConfig setEnableAnrReport: false];
+        [performanceConfig setEnableLowMemoryReport: false];
 
         InstanaSetupOptions *setupOptions = [[InstanaSetupOptions alloc]
                                     initWithHttpCaptureConfig: httpCapture
@@ -86,9 +103,11 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
                                     autoCaptureScreenNames: false
                                     debugAllScreenNames: false
                                     queryTrackedDomainList: queryTrackedDomainList
-                                    dropBeaconReporting: false];
+                                    dropBeaconReporting: dropBeaconReporting
+                                    rateLimits: rateLimits
+                                    perfConfig: performanceConfig];
 
-        HybridAgentOptions* hybridOptions = [[HybridAgentOptions alloc] initWithId: @"r" version: @"2.0.7"];
+        HybridAgentOptions* hybridOptions = [[HybridAgentOptions alloc] initWithId: @"r" version: @"2.0.8"];
 
         #pragma clang diagnostic ignored "-Wunused-result"
         (void)[Instana setupInternalWithKey: key
@@ -97,6 +116,22 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
                               hybridOptions: hybridOptions];
 
     });
+}
+
+- (RateLimits)rateLimitTypeFromObject:(id)value {
+    if (![value isKindOfClass:[NSNumber class]]) {
+        return RateLimitsDEFAULT_LIMITS;
+    }
+
+    NSInteger intValue = [((NSNumber *)value) integerValue];
+
+    switch (intValue) {
+        case RateLimitsMID_LIMITS:
+        case RateLimitsMAX_LIMITS:
+            return (RateLimits)intValue;
+        default:
+            return RateLimitsDEFAULT_LIMITS;
+    }
 }
 
 RCT_EXPORT_METHOD(setView:(nonnull NSString *)viewName)

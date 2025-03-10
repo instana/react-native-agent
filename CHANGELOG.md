@@ -1,5 +1,9 @@
 # Changelog
 
+# 2.0.8
+- support rate limit configuration
+- Upgrade iOSAgent to 1.8.9, android-agent to 6.1.2
+
 # 2.0.7
 - Add support for SuspendReporting in Android Platform
 - Upgrade iOSAgent to 1.8.7, android-agent to 6.1.0

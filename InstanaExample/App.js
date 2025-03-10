@@ -13,11 +13,12 @@ import Instana from '@instana/react-native-agent';
 
 class App extends Component {
   componentDidMount() {
-    var options = {};
+    let options = {};
     //    options.usiRefreshTimeIntervalInHrs = 24.0;
     options.suspendReporting =
       Instana.androidSuspendReport.LOW_BATTERY_OR_CELLULAR_CONNECTION;
     options.queryTrackedDomainList = ["google\.typicode\.com"];
+    // options.rateLimits = 1;
     Instana.setup('<your key>', '<your reporting url>', options);
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');
