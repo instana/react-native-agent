@@ -19,6 +19,7 @@ class App extends Component {
       Instana.androidSuspendReport.LOW_BATTERY_OR_CELLULAR_CONNECTION;
     options.queryTrackedDomainList = ["google\.typicode\.com"];
     // options.rateLimits = 1;
+    // options.enableW3CHeaders = true;
     Instana.setup('<your key>', '<your reporting url>', options);
     Instana.setUserID('123456');
     Instana.setUserEmail('nils@example.com');

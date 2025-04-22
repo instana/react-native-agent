@@ -61,6 +61,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
     private static final String SETUPOPTIONS_QUERY_TRACKED_DOMAIN_LIST = "queryTrackedDomainList";
     private static final String SETUPOPTIONS_DROP_BEACON_REPORTING = "dropBeaconReporting";
     private static final String SETUPOPTIONS_RATE_LIMITS = "rateLimits";
+    private static final String SETUPOPTIONS_ENABLE_W3CHEADERS = "enableW3CHeaders";
     
 
     public InstanaEumModule(ReactApplicationContext reactContext) {
@@ -157,12 +158,15 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
             }
             if (options.hasKey(SETUPOPTIONS_DROP_BEACON_REPORTING)) {
                boolean enableDropBeaconReporting = (boolean) options.getBoolean(SETUPOPTIONS_DROP_BEACON_REPORTING);
-               enableDropBeaconReporting = false;  // turn off the feature until server ready!!!
                config.setDropBeaconReporting(enableDropBeaconReporting);
             }
             if (options.hasKey(SETUPOPTIONS_RATE_LIMITS)) {
                 int rateLimitsInt = (int) options.getInt(SETUPOPTIONS_RATE_LIMITS);
                 config.setRateLimits(rateLimitsFromInt(rateLimitsInt));
+            }
+            if (options.hasKey(SETUPOPTIONS_ENABLE_W3CHEADERS)) {
+               boolean enableW3CHeaders = (boolean) options.getBoolean(SETUPOPTIONS_ENABLE_W3CHEADERS);
+               config.setEnableW3CHeaders(enableW3CHeaders);
             }
         }
         PerformanceMonitorConfig perfConfig = new PerformanceMonitorConfig(3000L, 15, false, false, false);

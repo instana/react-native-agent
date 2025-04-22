@@ -1,8 +1,9 @@
 # Changelog
 
 # 2.0.8
+- support enableW3CHeaders configuration
 - support rate limit configuration
-- Upgrade iOSAgent to 1.8.9, android-agent to 6.1.2
+- Upgrade iOSAgent to 1.9.1, android-agent to 6.2.1
 
 # 2.0.7
 - Add support for SuspendReporting in Android Platform

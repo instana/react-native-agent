@@ -8,7 +8,7 @@ buildscript {
         targetSdkVersion = 31
         ndkVersion = "21.4.7075529"
 
-        instanaAgentVersion = "6.1.2"
+        instanaAgentVersion = "6.2.1"
     }
     repositories {
         google()

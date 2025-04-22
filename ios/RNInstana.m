@@ -16,8 +16,10 @@ static NSString *const kHttpCaptureConfig = @"httpCaptureConfig";
 static NSString *const kEnableCrashReporting = @"enableCrashReporting";
 static NSString *const kSlowSendInterval = @"slowSendInterval";
 static NSString *const kUsiRefreshTimeIntervalInHrs = @"usiRefreshTimeIntervalInHrs";
+static NSString *const kQueryTrackedDomainList = @"queryTrackedDomainList";
 static NSString *const kDropBeaconReporting = @"dropBeaconReporting";
 static NSString *const kRateLimits = @"rateLimits";
+static NSString *const kEnableW3CHeaders = @"enableW3CHeaders";
 
 // Custom Event OptionKeys
 static NSString *const kCustomEventStartTimeKey = @"startTime";
@@ -26,7 +28,6 @@ static NSString *const kCustomEventViewNameKey = @"viewName";
 static NSString *const kCustomEventMetaNameKey = @"meta";
 static NSString *const kCustomEventBackendTracingIDNameKey = @"backendTracingId";
 static NSString *const kCustomMetric = @"customMetric";
-static NSString *const kQueryTrackedDomainList = @"queryTrackedDomainList";
 
 @implementation RNInstana
 
@@ -79,12 +80,16 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
         BOOL dropBeaconReporting = NO;
         if ([[options allKeys] containsObject: kDropBeaconReporting]) {
             dropBeaconReporting = [options[kDropBeaconReporting] boolValue];
-            dropBeaconReporting = false;  // turn off the feature until server ready!!!
         }
 
         RateLimits rateLimits = RateLimitsDEFAULT_LIMITS;
         if ([[options allKeys] containsObject: kRateLimits]) {
              rateLimits = [self rateLimitTypeFromObject:(options[kRateLimits])];
+        }
+
+        BOOL enableW3CHeaders = NO;
+        if ([[options allKeys] containsObject: kEnableW3CHeaders]) {
+            enableW3CHeaders = [options[kEnableW3CHeaders] boolValue];
         }
 
         InstanaPerformanceConfig* performanceConfig = [[InstanaPerformanceConfig alloc] init];
@@ -105,7 +110,9 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
                                     queryTrackedDomainList: queryTrackedDomainList
                                     dropBeaconReporting: dropBeaconReporting
                                     rateLimits: rateLimits
-                                    perfConfig: performanceConfig];
+                                    perfConfig: performanceConfig
+                                    trustDeviceTiming: false
+                                    enableW3CHeaders: enableW3CHeaders];
 
         HybridAgentOptions* hybridOptions = [[HybridAgentOptions alloc] initWithId: @"r" version: @"2.0.8"];
 

@@ -44,6 +44,7 @@ interface SetupOption {
   suspendReporting: any;
   dropBeaconReporting: boolean;
   rateLimits: any;
+  enableW3CHeaders: Boolean;
 }
 
 interface EventOption {
