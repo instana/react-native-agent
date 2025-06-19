@@ -20,7 +20,7 @@ interface InstanaInterface {
 }
 
 /**
-  * Rate-Limiter configuration for the maximum number of beacons allowed within specific time intervals:
+  * rateLimits configuration for the maximum number of beacons allowed within specific time intervals:
   *
   * - 0 (DEFAULT_LIMITS):
   *     - 500 beacons per 5 minutes
@@ -44,7 +44,7 @@ interface SetupOption {
   suspendReporting: any;
   dropBeaconReporting: boolean;
   rateLimits: any;
-  enableW3CHeaders: Boolean;
+  enableW3CHeaders: boolean;
 }
 
 interface EventOption {
