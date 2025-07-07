@@ -172,7 +172,7 @@ public class InstanaEumModule extends ReactContextBaseJavaModule implements Life
         PerformanceMonitorConfig perfConfig = new PerformanceMonitorConfig(3000L, 15, false, false, false);
         config.setPerformanceMonitorConfig(perfConfig);
 
-        HybridAgentOptions hybridAgentOptions = new HybridAgentOptions("r", "2.0.8");
+        HybridAgentOptions hybridAgentOptions = new HybridAgentOptions("r", "2.0.9");
         Instana.setupInternal(application, config, hybridAgentOptions);
     }
 

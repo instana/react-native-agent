@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.0.9
+- support Typescript projects by eliminating react-native import errors.
+
 # 2.0.8
 - support enableW3CHeaders configuration
 - support rate limit configuration
