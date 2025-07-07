@@ -1,3 +1,5 @@
+import "react-native";
+
 declare module "react-native" {
   export interface NativeModules {
     Instana: InstanaInterface;
