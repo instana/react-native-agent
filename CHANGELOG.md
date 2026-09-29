@@ -1,5 +1,8 @@
 # Changelog
 
+# 2.0.12
+- Upgrade android-agent to 6.4.0
+
 # 2.0.11
 - Add support to enable and disable httpCaptureConfig
 - Added `trustDeviceTiming` configuration option for backend to trust the device timing

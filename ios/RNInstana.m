@@ -132,7 +132,7 @@ RCT_EXPORT_METHOD(setup:(nonnull NSString *)key reportingUrl:(nonnull NSString *
                                     trustDeviceTiming: enableTrustDeviceTiming
                                     enableW3CHeaders: enableW3CHeaders];
 
-        HybridAgentOptions* hybridOptions = [[HybridAgentOptions alloc] initWithId: @"r" version: @"2.0.11"];
+        HybridAgentOptions* hybridOptions = [[HybridAgentOptions alloc] initWithId: @"r" version: @"2.0.12"];
 
         #pragma clang diagnostic ignored "-Wunused-result"
         (void)[Instana setupInternalWithKey: key
